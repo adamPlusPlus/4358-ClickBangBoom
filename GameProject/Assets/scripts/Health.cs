@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//This is a very simple health script. Damage is not based on any formula; it just relies on number of hits.
+//This is a very simple health script. Damage relies on number of hits (so everything related to damage/attack power uses int).
 
 public class Health : MonoBehaviour {
 
@@ -11,6 +11,7 @@ public class Health : MonoBehaviour {
     public void damage(int weaponPower)//assuming weaponPower is positive
     {
         health -= weaponPower;
+        gameObject.GetComponent<Animation>().Play("testEnemyHit");//Very specific to testEnemy; comment out for others
     }
 
 	// Use this for initialization

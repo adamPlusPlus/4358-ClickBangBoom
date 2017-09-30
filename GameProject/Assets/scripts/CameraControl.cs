@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-
-    
-
     private Vector2 velocity;
     public float timeX, timeY;//set these to about 0.15 for smooth, fast camera following
     public GameObject subject;
 
     void start()
     {
-        subject = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     void FixedUpdate()

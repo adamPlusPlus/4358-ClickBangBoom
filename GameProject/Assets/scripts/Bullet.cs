@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     public int power=1;
-    
+
     void OnTriggerEnter2D(Collider2D target)
     {
         if(target.CompareTag("Enemy"))
