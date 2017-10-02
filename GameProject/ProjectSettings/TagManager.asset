@@ -14,8 +14,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Front
   - 
   - 
   - 
@@ -44,6 +44,12 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 3241677267
+    locked: 0
+  - name: Ground
+    uniqueID: 3296995475
+    locked: 0
+  - name: Front
+    uniqueID: 3699322283
     locked: 0
   - name: Player
     uniqueID: 1637885363
