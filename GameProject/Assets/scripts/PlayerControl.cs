@@ -6,7 +6,7 @@ public class PlayerControl : MonoBehaviour
 {
 
     public float speed = 3;
-    private Rigidbody2D playerBody;
+    private Rigidbody playerBody;
 
     private float horizontalMovement, verticalMovement;
 
@@ -19,7 +19,7 @@ public class PlayerControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        playerBody = gameObject.GetComponent<Rigidbody2D>();
+        playerBody = gameObject.GetComponent<Rigidbody>();
         target = gameObject.GetComponent<Transform>();
     }
 
@@ -37,8 +37,8 @@ public class PlayerControl : MonoBehaviour
             mousePos.z = -(Camera.main.transform.position.z);
             objectPos = Camera.main.WorldToScreenPoint(target.position);
             mousePos.x = mousePos.x - objectPos.x;
-            mousePos.y = mousePos.y - objectPos.y;
-            angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            mousePos.y = mousePos.z - objectPos.z;
+            angle = Mathf.Atan2(mousePos.z, mousePos.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle - 90));
         }
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         //move using physics
-        Vector2 move = new Vector2(horizontalMovement, verticalMovement);
+        Vector3 move = new Vector3(horizontalMovement,0f,verticalMovement);
         playerBody.velocity = move * speed;
     }
 }

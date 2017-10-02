@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    private Vector2 velocity;
+    private Vector3 velocity;
     public float timeX, timeY;//set these to about 0.15 for smooth, fast camera following
-    public GameObject subject;
+    public Transform subject;
 
-    void start()
-    {
-
-    }
-
+  
     void FixedUpdate()
     {
-        float posX = Mathf.SmoothDamp(transform.position.x, subject.transform.position.x, ref velocity.x, timeX);
-        float posY = Mathf.SmoothDamp(transform.position.y, subject.transform.position.y, ref velocity.y, timeY);
-
-        transform.position = new Vector3(posX, posY, transform.position.z);
+        subject = GameObject.FindGameObjectWithTag("Player").transform;
+        //float posX = Mathf.SmoothDamp(transform.position.x, subject.position.x, ref velocity.x, timeX);
+        //float posZ = Mathf.SmoothDamp(transform.position.z, subject.position.z, ref velocity.z, timeY);
+        
+        transform.position = new Vector3(subject.position.x, 100f,subject.position.z);
     }
 }
