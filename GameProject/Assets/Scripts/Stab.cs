@@ -6,15 +6,15 @@ public class Stab : MonoBehaviour {
 
     private int power = 1;
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter(Collision collision)
     {//Player can touch the weapon without triggering collisions
         if (collision.gameObject.tag == "Player")
-            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+            Physics.IgnoreCollision(collision.gameObject.GetComponent<Collider>(), gameObject.GetComponent<Collider>());
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != ("Player"))
+        if (other.gameObject.tag ==("Enemy"))
         {
             other.GetComponent<Health>().damage(power);
             Destroy(gameObject);

@@ -13,8 +13,8 @@ public class EnemyMovement : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         //playerHealth = player.GetComponent<PlayerHealth>();
         //enemyHealth = GetComponent<EnemyHealth>();
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
-	}
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();      
+    }
 	// Update is called once per frame
 	void Update () {
         // If the enemy and the player have health left...
@@ -26,8 +26,8 @@ public class EnemyMovement : MonoBehaviour {
         // Otherwise...
         //else
         //{
-            // ... disable the nav mesh agent.
-           // nav.enabled = false;
+        // ... disable the nav mesh agent.
+        // nav.enabled = false;
         //}
     }
 }

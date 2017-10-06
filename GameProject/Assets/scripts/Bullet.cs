@@ -6,13 +6,16 @@ public class Bullet : MonoBehaviour {
 
     public int power=1;
 
-    void OnTriggerEnter2D(Collider2D target)
+    void OnTriggerEnter(Collider target)
     {
         if(target.CompareTag("Enemy"))
         {
             target.GetComponent<Health>().damage(power);
+            //camera shakes when bullet hits
+            Camera.main.GetComponent<CameraShake>().enabled = true;
         }
-        if (!target.CompareTag("Player"))//bullet is destroyed when in contact with anything besides player
+        //bullet is destroyed when in contact with anything besides player, ground, or itself
+        if (!target.CompareTag("Player")&&!target.CompareTag("Ground")&&!target.CompareTag("Bullet"))
             Destroy(gameObject);
     }
 }

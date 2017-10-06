@@ -7,8 +7,9 @@ using UnityEngine;
  * I was unable to find a way to make the dagger work as a physical weapon, so this script 
  * basically treats the dagger like a projectile that doesn't move. Each stab is instantiated,
  * so it isn't attached to the player. If the player moves too fast, then he moves away from 
- * a floating dagger (until the dagger is destroyed by time).
- * 
+ * a floating dagger (until the dagger is destroyed by time).Furthermore, the dagger doesn't 
+ * always instatiate at the right angle.
+ *
  * For these reasons, the player cannot move faster than the dagger's destroy time, which is a huge 
  * problem.
  * 
@@ -18,7 +19,7 @@ using UnityEngine;
 public class Dagger : MonoBehaviour {
 
     public GameObject stab;
-    private float coolDown = 0.2f;
+    public float coolDown = 0.1f;
     private float nextHit;
 
     // Use this for initialization
