@@ -7,6 +7,7 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
     public int health;//how many hits before it dies
+    public int scoreValue = 10;
 
     public void damage(int weaponPower)//assuming weaponPower is positive
     {
@@ -22,7 +23,12 @@ public class Health : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (health <= 0)//handles death
+        if (health <= 0) //handles death
+        {
+            // Find and disable the Nav Mesh Agent.
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
             Destroy(gameObject);
-	}
+            ScoreManager.score += scoreValue;
+        }
+    }
 }
