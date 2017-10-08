@@ -81,10 +81,12 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
 
+        /*
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
             transform.rotation = Quaternion.Euler(90, rotationY, 0);
         }
+        */
     }
     //
     void FixedUpdate()
