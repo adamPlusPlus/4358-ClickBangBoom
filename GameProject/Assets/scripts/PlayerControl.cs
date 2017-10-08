@@ -15,12 +15,18 @@ public class PlayerControl : MonoBehaviour
     private Vector3 objectPos;
     private Transform target;
     private float angle;
+    Animator anim;
+    // Setting up the references.
+    
+
+ 
 
     // Use this for initialization
     void Start()
     {
         playerBody = gameObject.GetComponent<Rigidbody>();
         target = gameObject.GetComponent<Transform>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,7 +35,10 @@ public class PlayerControl : MonoBehaviour
         //grab user input
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
-
+        // Create a boolean that is true if either of the input axes is non-zero.
+        bool walking = horizontalMovement != 0f || verticalMovement != 0f;
+        // Tell the animator whether or not the player is walking.
+        anim.SetBool("IsWalking", walking);
         //Set character rotation to follow on mouse click
         if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(1))
         {
@@ -50,7 +59,9 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         //move using physics
+        
         Vector3 move = new Vector3(horizontalMovement,0f,verticalMovement);
+        
         playerBody.velocity = move * speed;
     }
 }

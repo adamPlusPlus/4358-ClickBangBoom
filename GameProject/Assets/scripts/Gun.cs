@@ -11,19 +11,20 @@ public class Gun : MonoBehaviour {
     public float speed = 60;
     public GameObject bullet;
     private Vector3 startPosition;//bullet starts from where gun is located
-
+    Animator anim;
     // Use this for initialization
     void Start()
     {
-
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
         {
+            
             //set the direction for the bullet/projectile (follows the mouse)
             startPosition = GetComponent<Transform>().position;
             Vector3 mousePosition = Input.mousePosition;
