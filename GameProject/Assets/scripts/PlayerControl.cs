@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
     private Transform target;
     private float angle;
     private float rotationY = 0;
-    public float rotationSpeed = 200;
+    public float rotationSpeed = 1;
 
     Animator anim;
     // Setting up the references.
