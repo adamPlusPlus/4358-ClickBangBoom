@@ -46,7 +46,7 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(90,0,0);
         }
     }
-
+    //
     void FixedUpdate()
     {
         //move using physics
