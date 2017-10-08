@@ -16,7 +16,8 @@ using UnityEngine;
  * This is not an adequate way to implement melee weapons. Please help improve it.
  */
 
-public class Dagger : MonoBehaviour {
+public class Dagger : MonoBehaviour
+{
 
     public GameObject stab;
     public float coolDown = 0.1f;
@@ -31,7 +32,7 @@ public class Dagger : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate()
     {
-        if (Input.GetMouseButtonDown(1) && Time.time > nextHit)
+        if (!Input.GetMouseButton(1) && Input.GetButtonDown("Fire1") && Time.time > nextHit)
         {
             GameObject stabbing = Instantiate(stab, transform.position, transform.rotation);
             Destroy(stabbing, 0.05f);
