@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65497799296284844}
   - component: {fileID: 114224139708205084}
   m_Layer: 0
-  m_Name: stab
+  m_Name: Stab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,3 +121,5 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
