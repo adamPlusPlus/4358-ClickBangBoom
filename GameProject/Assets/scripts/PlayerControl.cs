@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
     private Transform target;
     private float angle;
     private float rotationY = 0;
-    public float rotationSpeed = 1;
+    public float rotationSpeed = 50;
 
     Animator anim;
     // Setting up the references.
@@ -38,11 +38,10 @@ public class PlayerControl : MonoBehaviour
         verticalMovement = Input.GetAxis("Vertical");
 
 
-        //rotate while walking:
         if (horizontalMovement > 0.1)
         {
             rotationY += horizontalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, -90, 90);
+            rotationY = Mathf.Clamp(rotationY, 270, 450);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
         if (horizontalMovement < -0.1)
@@ -54,7 +53,7 @@ public class PlayerControl : MonoBehaviour
         if (verticalMovement > 0.1)
         {
             rotationY += verticalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, -180, 0);
+            rotationY = Mathf.Clamp(rotationY, 180, 360);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
         if (verticalMovement < -0.1)
@@ -63,6 +62,7 @@ public class PlayerControl : MonoBehaviour
             rotationY = Mathf.Clamp(rotationY, 180, 360);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
+
 
         // Create a boolean that is true if either of the input axes is non-zero.
         bool walking = horizontalMovement != 0f || verticalMovement != 0f;
