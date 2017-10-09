@@ -42,7 +42,7 @@ public class PlayerControl : MonoBehaviour
         if (horizontalMovement > 0.1)
         {
             rotationY += horizontalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, -90, 90);
+            rotationY = Mathf.Clamp(rotationY, 270, 450);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
         if (horizontalMovement < -0.1)
@@ -60,7 +60,7 @@ public class PlayerControl : MonoBehaviour
         if (verticalMovement < -0.1)
         {
             rotationY += verticalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, 180, 360);
+            rotationY = Mathf.Clamp(rotationY, 180,360);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
 
@@ -81,10 +81,10 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
 
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        /*if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
             transform.rotation = Quaternion.Euler(90, rotationY, 0);
-        }
+        }*/
     }
     //
     void FixedUpdate()
