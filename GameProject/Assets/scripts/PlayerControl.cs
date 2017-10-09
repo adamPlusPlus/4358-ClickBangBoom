@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
     private Transform target;
     private float angle;
     private float rotationY = 0;
-    public float rotationSpeed = 200;
+    public float rotationSpeed = 1;
 
     Animator anim;
     // Setting up the references.
@@ -81,10 +81,19 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
 
+<<<<<<< HEAD
         /*if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
             transform.rotation = Quaternion.Euler(90, rotationY, 0);
         }*/
+=======
+        /*
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        {
+            transform.rotation = Quaternion.Euler(90, rotationY, 0);
+        }
+        */
+>>>>>>> bcffff4c0395cba2301121a76e41eac9a2626fb9
     }
     //
     void FixedUpdate()
