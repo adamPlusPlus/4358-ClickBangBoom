@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour
         if (horizontalMovement > 0.1)
         {
             rotationY += horizontalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, 270, 450);
+            rotationY = Mathf.Clamp(rotationY, -90, 90);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
         if (horizontalMovement < -0.1)
@@ -86,6 +86,7 @@ public class PlayerControl : MonoBehaviour
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         /*
         if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
@@ -98,6 +99,12 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(90, rotationY, 0);
         }*/
 >>>>>>> parent of 69cfef8... more stuff
+=======
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
+        {
+            transform.rotation = Quaternion.Euler(90, rotationY, 0);
+        }
+>>>>>>> parent of 23f855d... sprite shadow & movement
     }
     //
     void FixedUpdate()

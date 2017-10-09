@@ -25,10 +25,14 @@ MonoBehaviour:
   m_MaxSize: {x: 18008, y: 14045}
   vertical: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 2961
 =======
   controlID: 4903
 >>>>>>> parent of 69cfef8... more stuff
+=======
+  controlID: 1251
+>>>>>>> parent of 23f855d... sprite shadow & movement
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,14 +129,18 @@ MonoBehaviour:
     y: 0
     width: 779
     height: 635
-  m_MinSize: {x: 202, y: 442}
-  m_MaxSize: {x: 4002, y: 8042}
+  m_MinSize: {x: 202, y: 421}
+  m_MaxSize: {x: 4002, y: 8021}
   vertical: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
   controlID: 2940
 =======
   controlID: 4830
 >>>>>>> parent of 69cfef8... more stuff
+=======
+  controlID: 1252
+>>>>>>> parent of 23f855d... sprite shadow & movement
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,6 +229,7 @@ MonoBehaviour:
     m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
     speed: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Value: {x: -0.6974335, y: -0.009673646, z: 0.00941589, w: -0.7165225}
   m_Size:
     m_Target: 58.026
@@ -228,11 +237,18 @@ MonoBehaviour:
     m_Value: 58.026
 =======
     m_Value: {x: -0.7071068, y: 0, z: -0, w: -0.7071068}
+=======
+    m_Value: {x: -0.70710677, y: 0, z: -0, w: -0.70710677}
+>>>>>>> parent of 23f855d... sprite shadow & movement
   m_Size:
-    m_Target: 15.6538315
+    m_Target: 6.8567314
     speed: 2
+<<<<<<< HEAD
     m_Value: 15.6538315
 >>>>>>> parent of 69cfef8... more stuff
+=======
+    m_Value: 6.8567314
+>>>>>>> parent of 23f855d... sprite shadow & movement
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -305,12 +321,8 @@ MonoBehaviour:
     - {x: 416.2, y: 186.40001}
     - {x: 619.80005, y: 293.80002}
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 2ddecd2de0392f044a9b3a55c23437f2,
-    type: 2}
-  m_BreadCrumbs:
-  - m_Target: {fileID: 1107603593673086670, guid: 2ddecd2de0392f044a9b3a55c23437f2,
-      type: 2}
-    m_ScrollPosition: {x: 0, y: 0}
+  m_AnimatorController: {fileID: 0}
+  m_BreadCrumbs: []
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
   blendTreeGraph: {fileID: 0}
@@ -432,10 +444,14 @@ MonoBehaviour:
   m_MaxSize: {x: 10004, y: 14045}
   vertical: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
   controlID: 2886
 =======
   controlID: 4904
 >>>>>>> parent of 69cfef8... more stuff
+=======
+  controlID: 1174
+>>>>>>> parent of 23f855d... sprite shadow & movement
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -496,6 +512,7 @@ MonoBehaviour:
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: 682f0000
     m_LastClickedID: 12136
     m_ExpandedIDs: f2f2ffff00000000
@@ -504,6 +521,11 @@ MonoBehaviour:
     m_LastClickedID: 10462
     m_ExpandedIDs: e6fbffff00000000
 >>>>>>> parent of 69cfef8... more stuff
+=======
+    m_SelectedIDs: 1e2b0000
+    m_LastClickedID: 11038
+    m_ExpandedIDs: 12faffffcefaffffe6fbffff000000004e2b0000
+>>>>>>> parent of 23f855d... sprite shadow & movement
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -599,6 +621,7 @@ MonoBehaviour:
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedIDs: 102e0000
     m_LastClickedID: 11792
     m_ExpandedIDs: 000000009e2d0000c02d00001c3000001e30000000ca9a3bffffff7f
@@ -607,6 +630,11 @@ MonoBehaviour:
     m_LastClickedID: 10100
     m_ExpandedIDs: 00000000b22500000a260000d0290000d229000000ca9a3bffffff7f
 >>>>>>> parent of 69cfef8... more stuff
+=======
+    m_SelectedIDs: a8260000
+    m_LastClickedID: 9896
+    m_ExpandedIDs: 00000000b025000008260000b2290000b429000000ca9a3bffffff7f
+>>>>>>> parent of 23f855d... sprite shadow & movement
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -635,10 +663,14 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 000000009e2d0000c02d00001c3000001e30000000ca9a3bffffff7f
 =======
     m_ExpandedIDs: 00000000b22500000a260000d0290000d229000000ca9a3bffffff7f
 >>>>>>> parent of 69cfef8... more stuff
+=======
+    m_ExpandedIDs: 00000000b025000008260000b2290000b429000000ca9a3bffffff7f
+>>>>>>> parent of 23f855d... sprite shadow & movement
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -664,12 +696,17 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 682f0000
     m_LastClickedInstanceID: 12136
 =======
     m_SelectedInstanceIDs: de280000
     m_LastClickedInstanceID: 10462
 >>>>>>> parent of 69cfef8... more stuff
+=======
+    m_SelectedInstanceIDs: 1e2b0000
+    m_LastClickedInstanceID: 11038
+>>>>>>> parent of 23f855d... sprite shadow & movement
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 2a26000012250000c22d0000000000009a260000722800007028000066260000882600003e2800002e2800007428000064280000
     m_RenameOverlay:
