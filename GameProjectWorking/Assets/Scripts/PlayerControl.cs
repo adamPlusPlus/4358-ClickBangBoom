@@ -37,6 +37,11 @@ public class PlayerControl : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+            speed *= 2;
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+            speed /= 2;
+
 
         if (horizontalMovement > 0.1)
         {
