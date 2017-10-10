@@ -51,6 +51,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Hot Cursor\Contents\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+     <Compile Include="Assets\Hot Cursor\Core\Scripts\HotCursorManager.cs" />
+     <Compile Include="Assets\Hot Cursor\Core\Scripts\Invoker.cs" />
+     <Compile Include="Assets\Hot Cursor\Core\Scripts\Preferences.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\FirstPerson\Scripts\FPSDemo.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\InvokerExampleScripts\2D\hc_AddForce.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\InvokerExampleScripts\2D\hc_ToggleRenderer.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\InvokerExampleScripts\TP&amp;FP\Test1.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\InvokerExampleScripts\TP&amp;FP\Test2.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\Menu\hc_SwitchScenes.cs" />
+     <Compile Include="Assets\Hot Cursor\Demo\ThirdPerson\Scripts\TPDemo.cs" />
      <Compile Include="Assets\Pixelation\Example\Scripts\ImageEffectBase.cs" />
      <Compile Include="Assets\Pixelation\Example\Scripts\Plane.cs" />
      <Compile Include="Assets\Pixelation\Example\Scripts\PointLight.cs" />
@@ -163,6 +174,7 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\FXAA.shader" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DiskKernels.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.cginc" />
+     <None Include="Assets\Hot Cursor\readme.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\ScreenSpaceRaytrace.cginc" />
      <None Include="Assets\PostProcessing\Resources\Shaders\Bloom.shader" />
      <None Include="Assets\Fonts\OFL.txt" />
