@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812072174791060}
   - component: {fileID: 212817637541164950}
+  - component: {fileID: 111817995877638196}
   m_Layer: 0
   m_Name: testEnemy
   m_TagString: Enemy
@@ -57,8 +58,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1258342592850600}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 4850294410996290}
   m_RootOrder: 0
@@ -105,6 +106,20 @@ Animation:
   - {fileID: 7400000, guid: bed88c3fca06ec6468f8db77af278f8c, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!111 &111817995877638196
+Animation:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258342592850600}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
 --- !u!114 &114546209130906956
@@ -221,10 +236,10 @@ SpriteRenderer:
   m_SortingLayerID: -595645013
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 241f5a776f711cc4fbcafc62fe656ff0, type: 3}
-  m_Color: {r: 0.01382494, g: 0.572, b: 0, a: 1}
+  m_Sprite: {fileID: 21300008, guid: 96026ee2f36c99b46a9f884786ddd104, type: 3}
+  m_Color: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
