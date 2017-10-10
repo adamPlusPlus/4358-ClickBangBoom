@@ -20,13 +20,13 @@ public class Gun : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
+        //ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
+        //ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
 
         if (Input.GetMouseButton(1))
         {
