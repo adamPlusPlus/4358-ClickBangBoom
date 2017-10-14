@@ -78,7 +78,8 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
         {
             mousePos = Input.mousePosition;
-            mousePos.z = -(Camera.main.transform.position.y);
+            mousePos.z = -transform.position.y;
+            //mousePos.z = (Camera.main.transform.position.y);
             objectPos = Camera.main.WorldToScreenPoint(target.position);
             mousePos.x = mousePos.x - objectPos.x;
             mousePos.y = mousePos.y - objectPos.y;
