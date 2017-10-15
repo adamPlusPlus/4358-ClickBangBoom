@@ -86,6 +86,10 @@ public class PlayerControl : MonoBehaviour
             angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
+        if (Input.GetMouseButton(1))
+            anim.SetBool("aim", true);
+        if (Input.GetMouseButtonUp(1))
+            anim.SetBool("aim", false);
     }
     //
     void FixedUpdate()

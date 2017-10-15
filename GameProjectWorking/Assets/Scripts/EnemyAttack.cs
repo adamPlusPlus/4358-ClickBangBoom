@@ -34,6 +34,8 @@ public class EnemyAttack : MonoBehaviour
             // ... the player is in range.
             playerInRange = true;
         }
+        if (other.tag == "Bullet")//For some reason,  bullets pierce through enemies
+            Destroy(other.gameObject);
     }
 
 

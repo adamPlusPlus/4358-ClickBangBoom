@@ -45,12 +45,12 @@ GameObject:
   - component: {fileID: 111181219485165756}
   - component: {fileID: 135767093331456010}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Enemy(Old, use FallenChildEnemy)
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4812072174791060
 Transform:
   m_ObjectHideFlags: 1
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af7a5b15cc46e74e9e38c379f5e508b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 0
   scoreValue: 10
 --- !u!114 &114893848789531174
 MonoBehaviour:

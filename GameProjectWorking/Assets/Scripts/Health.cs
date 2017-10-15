@@ -19,7 +19,7 @@ public class Health : MonoBehaviour {
     public void damage(int weaponPower)//assuming weaponPower is positive
     {
         health -= weaponPower;
-        gameObject.GetComponent<Animation>().Play("testEnemyHit");//Very specific to testEnemy; comment out for others
+       // gameObject.GetComponent<Animation>().Play("testEnemyHit");//Very specific to testEnemy; comment out for others
     }
 	
 	// Update is called once per frame

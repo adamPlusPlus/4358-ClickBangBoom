@@ -12,15 +12,38 @@ public class Gun : MonoBehaviour
     public float destroyTime;//amount of time before bullet is destroyed (simulates weapon range)
     public float speed = 30f;
     public GameObject bullet;
-    private Vector3 startPosition;//bullet starts from where gun is located
+
     public int ammo = 30;
     public Text ammoCount;
+
+    private Vector3 startPosition;//bullet starts from where gun is located
+    private Vector3 direction;
     Animator anim;
+
+    private Light gunLight;
+    private AudioSource gunFire;
     // Use this for initialization
     void Start()
     {
-        anim = GetComponent<Animator>();
+        anim = GetComponentInParent<Animator>();
+        gunLight = GetComponent<Light>();
+        gunFire = GetComponent<AudioSource>();
         //ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
+    }
+
+    void shoot()
+    {
+        //fires bullet
+        if (ammo > 0)
+        {
+            GameObject shot = Instantiate(bullet, startPosition, Quaternion.Euler(90, 0, 0));
+            Camera.main.GetComponent<CameraShake>().enabled = true;
+            anim.SetTrigger("fire");
+            gunFire.Play();
+            shot.GetComponent<Rigidbody>().velocity = (direction).normalized * speed;
+            ammo--;
+            Destroy(shot, destroyTime);//bullet flies for destroyedTime seconds, then it goes "out of range"
+        }
     }
 
     // Update is called once per frame
@@ -36,19 +59,11 @@ public class Gun : MonoBehaviour
            // mousePosition.z = -transform.position.y;
             mousePosition.z = 1 * (Camera.main.transform.position.y);
             Vector3 target = Camera.main.ScreenToWorldPoint(mousePosition);
-            Vector3 direction = (target - startPosition).normalized;
+            direction = (target - startPosition).normalized;
             if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
             {
-                //fires bullet
-                if (ammo > 0)
-                {
-                    GameObject shot = Instantiate(bullet, startPosition, Quaternion.Euler(90, 0, 0));
-                    Camera.main.GetComponent<CameraShake>().enabled = true;
-                    shot.GetComponent<Rigidbody>().velocity = (direction).normalized * speed;
-                    ammo--;
-                    Destroy(shot, destroyTime);//bullet flies for destroyedTime seconds, then it goes "out of range"
-                    nextFire = Time.time + reloadTime;
-                }
+                shoot();
+                nextFire = Time.time + reloadTime;
             }
         }
     }

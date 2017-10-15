@@ -10,9 +10,8 @@ public class Bullet : MonoBehaviour {
     {
         if(target.CompareTag("Enemy"))
         {
+            //Debug.Log("HIT");
             target.GetComponent<Health>().damage(power);
-            //camera shakes when bullet hits
-            //Camera.main.GetComponent<CameraShake>().enabled = true;
         }
         //bullet is destroyed when in contact with anything besides player, ground, or itself
         if (!target.CompareTag("Player")&&!target.CompareTag("Ground")&&!target.CompareTag("Bullet"))

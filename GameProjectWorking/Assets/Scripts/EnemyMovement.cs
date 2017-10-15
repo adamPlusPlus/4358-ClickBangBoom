@@ -21,8 +21,8 @@ public class EnemyMovement : MonoBehaviour {
         //if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         //{
         // ... set the destination of the nav mesh agent to the player.
-  
-        nav.SetDestination(player.position);
+        if(GetComponent<Health>().health>0)
+            nav.SetDestination(player.position);
         //}
         // Otherwise...
         //else
