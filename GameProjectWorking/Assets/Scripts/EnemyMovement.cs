@@ -20,8 +20,9 @@ public class EnemyMovement : MonoBehaviour {
         // If the enemy and the player have health left...
         //if (enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
         //{
-            // ... set the destination of the nav mesh agent to the player.
-            nav.SetDestination(player.position);
+        // ... set the destination of the nav mesh agent to the player.
+  
+        nav.SetDestination(player.position);
         //}
         // Otherwise...
         //else
@@ -29,5 +30,7 @@ public class EnemyMovement : MonoBehaviour {
         // ... disable the nav mesh agent.
         // nav.enabled = false;
         //}
+
+
     }
 }

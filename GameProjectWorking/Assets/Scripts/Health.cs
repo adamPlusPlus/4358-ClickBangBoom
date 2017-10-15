@@ -2,23 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-//This is a very simple health script. Damage relies on number of hits (so everything related to damage/attack power uses int).
+//Enemy Health Script
 
 public class Health : MonoBehaviour {
 
     public int health;//how many hits before it dies
     public int scoreValue = 10;
+    private Animator anim;
+
+    // Use this for initialization
+    void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
 
     public void damage(int weaponPower)//assuming weaponPower is positive
     {
         health -= weaponPower;
         gameObject.GetComponent<Animation>().Play("testEnemyHit");//Very specific to testEnemy; comment out for others
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update ()
@@ -27,7 +29,10 @@ public class Health : MonoBehaviour {
         {
             // Find and disable the Nav Mesh Agent.
             GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
-            Destroy(gameObject);
+            GetComponent<EnemyAttack>().enabled = false;
+            GetComponent<Collider>().enabled = false;
+            anim.SetTrigger("die");
+            Destroy(gameObject, 5.0f);
             ScoreManager.score += scoreValue;
         }
     }
