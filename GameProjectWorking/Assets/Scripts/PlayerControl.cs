@@ -42,7 +42,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
             speed /= 2;
 
-
+        
         if (horizontalMovement > 0.1)
         {
             rotationY += horizontalMovement * rotationSpeed;
@@ -72,10 +72,10 @@ public class PlayerControl : MonoBehaviour
         // Create a boolean that is true if either of the input axes is non-zero.
         bool walking = horizontalMovement != 0f || verticalMovement != 0f;
         // Tell the animator whether or not the player is walking.
-        anim.SetBool("IsWalking", walking);
+        anim.SetBool("IsWalking", walking);  
 
         //Set character rotation to follow on mouse click
-        if (Input.GetMouseButtonDown(0) || Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
         {
             mousePos = Input.mousePosition;
             mousePos.z = -transform.position.y;
@@ -86,13 +86,6 @@ public class PlayerControl : MonoBehaviour
             angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
-
-        /*
-        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
-        {
-            transform.rotation = Quaternion.Euler(90, rotationY, 0);
-        }
-        */
     }
     //
     void FixedUpdate()
@@ -100,5 +93,15 @@ public class PlayerControl : MonoBehaviour
         //move using physics
         Vector3 move = new Vector3(horizontalMovement, 0f, verticalMovement);
         playerBody.velocity = move * speed;
+    }
+
+    private void LateUpdate()
+    {
+        //Melee Attack:
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
+            anim.SetTrigger("melee");
+        }
     }
 }
