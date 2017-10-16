@@ -446,6 +446,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  currentStamina: 0
+  maxStamina: 5
   rotationSpeed: 50
 --- !u!65 &229093030
 BoxCollider:
@@ -540,7 +542,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 229093028}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 140, y: 0, z: 404}
+  m_LocalPosition: {x: 139.77, y: 0, z: 395.82}
   m_LocalScale: {x: 13, y: 13, z: 1}
   m_Children:
   - {fileID: 1353544664}
@@ -2490,6 +2492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
+  currentStamina: 0
+  maxStamina: 5
   rotationSpeed: 200
 --- !u!54 &1326241667
 Rigidbody:

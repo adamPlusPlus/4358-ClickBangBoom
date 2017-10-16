@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
 
     public float speed = 5;
+    private float startSpeed;
+    public float currentStamina;
+    public float maxStamina = 3;
+    
+    //public Slider staminaBar; USING RECTANGLE INSTEAD
+    Rect staminaBar;
+    Texture2D staminaTexture;
+
     private Rigidbody playerBody;
     private float horizontalMovement, verticalMovement;
 
@@ -20,14 +29,19 @@ public class PlayerControl : MonoBehaviour
     Animator anim;
     // Setting up the references.
 
-
-
     // Use this for initialization
     void Start()
     {
+        startSpeed = speed;
+        currentStamina = maxStamina;
         playerBody = gameObject.GetComponent<Rigidbody>();
         target = gameObject.GetComponent<Transform>();
         anim = GetComponent<Animator>();
+        //set stamina bar
+        staminaBar = new Rect(Screen.width / 15, Screen.height * 9/10, Screen.width / 8, Screen.height / 50);
+        staminaTexture = new Texture2D(1, 1);
+        staminaTexture.SetPixel(0, 0, Color.green);
+        staminaTexture.Apply();
     }
 
     // Update is called once per frame
@@ -37,12 +51,24 @@ public class PlayerControl : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
-            speed *= 2;
-        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
-            speed /= 2;
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))&&currentStamina>0.01)
+        {
+            if (currentStamina < 0.1)
+            {
+                currentStamina = 0;
+                speed = startSpeed;
+                return;
+            }
+            speed =startSpeed*2;
+            currentStamina -= Time.deltaTime;
+        }
+        else
+        {
+            speed = startSpeed;
+            if (currentStamina < maxStamina)
+                currentStamina += Time.deltaTime;
+        }
 
-        
         if (horizontalMovement > 0.1)
         {
             rotationY += horizontalMovement * rotationSpeed;
@@ -67,7 +93,6 @@ public class PlayerControl : MonoBehaviour
             rotationY = Mathf.Clamp(rotationY, 180, 360);
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
         }
-
 
         // Create a boolean that is true if either of the input axes is non-zero.
         bool walking = horizontalMovement != 0f || verticalMovement != 0f;
@@ -107,5 +132,13 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
             anim.SetTrigger("melee");
         }
+    }
+
+    private void OnGUI()
+    {
+        float ratio = currentStamina / maxStamina;
+        float barWidth = ratio * Screen.width / 8;
+        staminaBar.width = barWidth;
+        GUI.DrawTexture(staminaBar, staminaTexture);
     }
 }
