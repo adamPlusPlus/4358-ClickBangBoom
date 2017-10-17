@@ -448,7 +448,7 @@ MonoBehaviour:
   speed: 7
   currentStamina: 0
   maxStamina: 5
-  rotationSpeed: 50
+  rotationSpeed: 10
 --- !u!65 &229093030
 BoxCollider:
   m_ObjectHideFlags: 0

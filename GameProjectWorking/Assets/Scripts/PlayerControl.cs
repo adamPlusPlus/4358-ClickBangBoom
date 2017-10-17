@@ -23,8 +23,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 objectPos;
     private Transform target;
     private float angle;
-    private float rotationY = 0;
-    public float rotationSpeed = 50;
+    public float rotationSpeed = 10;
 
     Animator anim;
     // Setting up the references.
@@ -69,29 +68,38 @@ public class PlayerControl : MonoBehaviour
                 currentStamina += Time.deltaTime;
         }
 
-        if (horizontalMovement > 0.1)
+        //Rotation from key input (8 directional movement)
+        if (horizontalMovement > 0.1 && Mathf.Abs(verticalMovement) < 0.6)//right
         {
-            rotationY += horizontalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, 270, 450);
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, 90, 0), rotationSpeed * Time.deltaTime);
         }
-        if (horizontalMovement < -0.1)
+        if (horizontalMovement < -0.1 && Mathf.Abs(verticalMovement) < 0.6)//left
         {
-            rotationY += horizontalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, 270, 450);
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, -90, 0), rotationSpeed * Time.deltaTime);
         }
-        if (verticalMovement > 0.1)
+        if (verticalMovement > 0.1 && Mathf.Abs(horizontalMovement) < 0.6)//up
         {
-            rotationY += verticalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, 180, 360);
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, 0, 0), rotationSpeed * Time.deltaTime);
         }
-        if (verticalMovement < -0.1)
+        if (verticalMovement < -0.1 && Mathf.Abs(horizontalMovement) < 0.6)//down
         {
-            rotationY += verticalMovement * rotationSpeed;
-            rotationY = Mathf.Clamp(rotationY, 180, 360);
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, rotationY, transform.localEulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, 180, 0), rotationSpeed * Time.deltaTime);
+        }
+        if (verticalMovement > 0.7 && horizontalMovement > 0.7)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, 40, 0), rotationSpeed * Time.deltaTime);
+        }
+        if (verticalMovement > 0.7 && horizontalMovement < -0.7)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, -40, 0), rotationSpeed * Time.deltaTime);
+        }
+        if (verticalMovement < -0.7 && horizontalMovement > 0.7)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, 130, 0), rotationSpeed * Time.deltaTime);
+        }
+        if (verticalMovement < -0.7 && horizontalMovement < -0.7)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(90, -130, 0), rotationSpeed * Time.deltaTime);
         }
 
         // Create a boolean that is true if either of the input axes is non-zero.
