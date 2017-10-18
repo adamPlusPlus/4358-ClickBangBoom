@@ -51,6 +51,7 @@ public class PlayerHealth : MonoBehaviour
 
         // Reset the damaged flag.
         damaged = false;
+        healthSlider.value = currentHealth;
     }
 
 

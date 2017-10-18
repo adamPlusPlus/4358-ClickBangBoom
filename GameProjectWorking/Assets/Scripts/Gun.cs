@@ -28,7 +28,7 @@ public class Gun : MonoBehaviour
         anim = GetComponentInParent<Animator>();
         gunLight = GetComponent<Light>();
         gunFire = GetComponent<AudioSource>();
-        //ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
+        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
     }
 
     void shoot()
@@ -49,7 +49,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
+        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
 
         if (Input.GetMouseButton(1))
         {

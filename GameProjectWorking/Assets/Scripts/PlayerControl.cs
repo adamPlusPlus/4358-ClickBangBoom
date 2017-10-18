@@ -37,7 +37,7 @@ public class PlayerControl : MonoBehaviour
         target = gameObject.GetComponent<Transform>();
         anim = GetComponent<Animator>();
         //set stamina bar
-        staminaBar = new Rect(Screen.width / 15, Screen.height * 9/10, Screen.width / 8, Screen.height / 50);
+        staminaBar = new Rect(Screen.width / 26, Screen.height * 9.5f/10, Screen.width / 10, Screen.height / 80); //(x,y,width of bar, height of bar)
         staminaTexture = new Texture2D(1, 1);
         staminaTexture.SetPixel(0, 0, Color.green);
         staminaTexture.Apply();
@@ -50,7 +50,7 @@ public class PlayerControl : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))&&currentStamina>0.01)
+        if ((Input.GetKey(KeyCode.LeftShift) ||Input.GetKey(KeyCode.RightShift)|| Input.GetKey(KeyCode.Space))&&currentStamina>0.01)
         {
             if (currentStamina < 0.1)
             {
@@ -145,7 +145,7 @@ public class PlayerControl : MonoBehaviour
     private void OnGUI()
     {
         float ratio = currentStamina / maxStamina;
-        float barWidth = ratio * Screen.width / 8;
+        float barWidth = ratio * Screen.width / 10;
         staminaBar.width = barWidth;
         GUI.DrawTexture(staminaBar, staminaTexture);
     }
