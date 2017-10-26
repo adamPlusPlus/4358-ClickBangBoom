@@ -1,42 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class FlyingEnemyMovement : MonoBehaviour {
 
     Transform target;
-    int moveSpeed = 10;
-    int rotationSpeed = 5;
-    Transform myTransform;
+    int MoveSpeed = 10;
+    int MinDist = 9;
+    private Vector3 startPosition;
+    private Animator anim;
     // Use this for initialization
-    void Awake()
-    {
-        myTransform = transform;
-    }
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
-        //anim = GetComponent<Animator>();
+        //position wgere we will return after player run far enough
+        startPosition = transform.position;
+        //finding player
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+        anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+       
+        if (this.GetComponent<Health>().health > 0) {
+            Vector3 targetPostition = new Vector3(target.position.x,
+                                           target.position.y - 90,
+                                           target.position.z);
+            transform.LookAt(targetPostition);
 
-        float dist = Vector3.Distance(target.position, myTransform.position);
-        Vector3 lookDir = target.position - myTransform.position;
-        //lookDir.z=0;
-        
-        if (dist < 10)
-        {
-
-            myTransform.rotation = Quaternion.Slerp(myTransform.rotation, Quaternion.LookRotation(lookDir), rotationSpeed * Time.deltaTime);
-            
-            if (dist > 0.5)
+            if (Vector3.Distance(transform.position, target.position) < MinDist)
             {
-                myTransform.position += myTransform.forward * moveSpeed * Time.deltaTime;
+                anim.SetBool("IsFlying", true);
+                transform.position = Vector3.MoveTowards(transform.position, target.position, MoveSpeed * Time.deltaTime);
 
+            } else
+            {
+
+                //going back to the nest
+                Vector3 initialPosition = new Vector3(startPosition.x,
+                                           startPosition.y - 90,
+                                           startPosition.z);
+                transform.LookAt(initialPosition);
+                transform.position = Vector3.MoveTowards(transform.position, startPosition, (MoveSpeed + 2) * Time.deltaTime);
+                anim.SetBool("IsFlying", false);
             }
+
         }
+      
+
     }
 }
+ 
+
