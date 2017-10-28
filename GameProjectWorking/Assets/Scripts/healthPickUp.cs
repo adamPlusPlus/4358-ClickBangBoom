@@ -10,8 +10,12 @@ public class healthPickUp : MonoBehaviour {
     {
         if(other.tag=="Player")
         {
-            other.GetComponent<PlayerHealth>().currentHealth += heal;
-            Destroy(gameObject);
+            if(other.GetComponent<PlayerHealth>().currentHealth< other.GetComponent<PlayerHealth>().startingHealth)
+            {//won't pick up if player at full health
+             other.GetComponent<PlayerHealth>().currentHealth += heal;
+             Destroy(gameObject);
+            }
+
         }
     }
 
