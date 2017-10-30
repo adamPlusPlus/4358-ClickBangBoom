@@ -51,8 +51,8 @@ public class Gun : MonoBehaviour
     {
         ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
 
-        //if (Input.GetMouseButton(1))
-        /*if(Input.GetButtonDown("Fire1"))
+
+        /*if (Input.GetMouseButton(1))
         {
             //set the direction for the bullet/projectile (follows the mouse)
             startPosition = GetComponent<Transform>().position;
@@ -68,8 +68,14 @@ public class Gun : MonoBehaviour
                  nextFire = Time.time + reloadTime;
              }
         }*/
+
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
+            anim.SetBool("aim", true);
         if (Input.GetButtonUp("Fire1") && Time.time > nextFire)
         {
+
+            anim.SetBool("aim", false);
+
             startPosition = GetComponent<Transform>().position;
             Vector3 mousePosition = Input.mousePosition;
             // mousePosition.z = -transform.position.y;
