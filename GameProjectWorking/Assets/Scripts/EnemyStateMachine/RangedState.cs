@@ -17,13 +17,19 @@ public class RangedState : IEnemyState
 
     public void Execute()
     {
+        enemy.ani.SetBool("IsMoving", true);
+
         RangedAttack(); 
 
         Debug.Log("Target in Range");
 
-        if(enemy.target!=null)
+        if(enemy.target!=null&&Vector3.Distance(enemy.transform.position,enemy.target.GetComponent<Transform>().position)>0.5f&&enemy.GetComponent<Health>().health>=4)
         {
             enemy.Move();
+        }
+        else if(enemy.GetComponent<Health>().health<4)
+        {
+            enemy.ChangeState(new RetreatState());
         }
         else
         {
@@ -38,13 +44,13 @@ public class RangedState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.tag == "Bullet")
+            enemy.target = enemy.player;
     }
 
     public void RangedAttack()
     {
-        throwTimer += Time.deltaTime;
-        enemy.ani.SetBool("IsMoving", true);
+       throwTimer += Time.deltaTime;
 
         if (throwTimer>=throwCoolDown)
         {
@@ -55,7 +61,6 @@ public class RangedState : IEnemyState
         if(canFire)
         {
             canFire = false;
-            enemy.ani.SetBool("IsMoving", false);
             enemy.ani.SetTrigger("throw");
             enemy.ThrowAttack();
         }

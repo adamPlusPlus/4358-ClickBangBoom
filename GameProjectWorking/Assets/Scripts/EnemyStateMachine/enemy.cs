@@ -7,6 +7,7 @@ public class enemy : character {
     private IEnemyState currentState;
 
     public GameObject target { get; set; }
+    public GameObject player;
 
     public GameObject shot;//enemy ranged attack prefab
 
@@ -22,13 +23,14 @@ public class enemy : character {
 	
 	void Update ()
     {
-        if(GetComponent<Health>().health > 0)//really shouldn't be necessary but is
+        if(GetComponent<Health>().health > 0)//need to fix this
         {
             currentState.Execute();
 
             LookAtTarget();
         }
-	}
+
+    }
 
     public void ChangeState(IEnemyState newState)
     {
@@ -44,19 +46,22 @@ public class enemy : character {
 
     public void LookAtTarget()
     {
-        if (target!=null&& Vector3.Distance(transform.position, target.transform.position) > 0.3)
+        if (target!=null&& Vector3.Distance(transform.position, target.transform.position) > 0.3&& GetComponent<Health>().health>=4)
         {
             transform.LookAt(target.transform);
         }
+        /*
+        if (target != null && GetComponent<Health>().health < 4 && GetComponent<Health>().health > 0)
+        {
+            transform.LookAt(2*transform.position-target.transform.position);
+        }*/
     }
 
     public void Move()// just testing
     {
-        //Though, this test makes it so that the enemy circles the player. Looks funny but might be an 
-        //interesting behavior
         //ani.SetBool("isMoving", true);
 
-        if (move==0&&GetComponent<Health>().health>0)
+        if (move==0&&GetComponent<Health>().health>=0)
         {
             if (hitEdge)
             {
@@ -68,6 +73,7 @@ public class enemy : character {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), 5 * Time.deltaTime);
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
+            
         }
 
     }
@@ -81,7 +87,7 @@ public class enemy : character {
     {
         currentState.OnTriggerEnter(other);
     }
-
+  
    /* public override IEnumerator TakeDamage()
     {
         //health-=some dmg;

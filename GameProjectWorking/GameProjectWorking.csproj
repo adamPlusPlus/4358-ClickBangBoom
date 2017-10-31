@@ -170,6 +170,7 @@
     <Compile Include="Assets\Scripts\EnemyStateMachine\MeleeState.cs" />
     <Compile Include="Assets\Scripts\EnemyStateMachine\PatrolState.cs" />
     <Compile Include="Assets\Scripts\EnemyStateMachine\RangedState.cs" />
+    <Compile Include="Assets\Scripts\EnemyStateMachine\RetreatState.cs" />
     <Compile Include="Assets\Scripts\FlyingEnemyMovement.cs" />
     <Compile Include="Assets\Scripts\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />

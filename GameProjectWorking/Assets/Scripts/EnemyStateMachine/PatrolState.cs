@@ -22,6 +22,11 @@ public class PatrolState : IEnemyState
 
         if(enemy.target!=null)
         {
+            if(enemy.GetComponent<Health>().health<4)
+            {
+                enemy.ChangeState(new RetreatState());
+            }
+            else
             enemy.ChangeState(new RangedState());
         }
     }

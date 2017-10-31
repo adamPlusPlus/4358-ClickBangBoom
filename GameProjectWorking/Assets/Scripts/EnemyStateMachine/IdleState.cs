@@ -33,7 +33,10 @@ public class IdleState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-
+        if(other.gameObject.tag=="Bullet")
+        {
+            enemy.target = enemy.player; 
+        }
     }
 
     private void Idle()
