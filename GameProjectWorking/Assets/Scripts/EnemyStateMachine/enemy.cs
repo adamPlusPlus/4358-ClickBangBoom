@@ -25,12 +25,7 @@ public class enemy : character {
     public float minDist;
 
     public bool rand = false;
-    //public bool go = true;
-
-
-    //not sure how to control movement, just testing something:
-    //public bool hitEdge=true;
-    //public int move;
+    
     
 	public override void Start ()
     {

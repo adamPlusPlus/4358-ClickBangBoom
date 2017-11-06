@@ -89,7 +89,7 @@ Transform:
   m_GameObject: {fileID: 1077561105105008}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 1}
+  m_LocalScale: {x: 25, y: 25, z: 1}
   m_Children: []
   m_Father: {fileID: 4523013080709392}
   m_RootOrder: 0
@@ -205,15 +205,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ae9270cbc8f7743bd4574ce77776a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 7
   player: {fileID: 0}
   power: 10
   melee: 1
   passive: 1
-  idleTime: 5
+  idleTime: 7
   patrolTime: 10
   shot: {fileID: 0}
-  waypoints: []
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   num: 0
   minDist: 1
   rand: 0
@@ -238,8 +241,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.100000024
-  m_Height: 0.29
+  m_Radius: 0.06
+  m_Height: 0.27
   m_Direction: 1
   m_Center: {x: 0, y: 0.02, z: 0}
 --- !u!136 &136366234949738218
@@ -251,8 +254,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 1.75
-  m_Height: 5.74
+  m_Radius: 2.55
+  m_Height: 6.95
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0.5}
 --- !u!195 &195076737674974858

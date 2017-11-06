@@ -41,7 +41,7 @@ public class MeleeState : IEnemyState
 
     public void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.tag=="Player")
+        if(other.gameObject.tag=="Player"&&enemy.GetComponent<Health>().health>0)
         {
             other.GetComponent<PlayerHealth>().TakeDamage(enemy.power);
         }

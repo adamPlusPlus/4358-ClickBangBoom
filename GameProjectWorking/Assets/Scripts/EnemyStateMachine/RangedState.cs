@@ -19,6 +19,7 @@ public class RangedState : IEnemyState
     {
         enemy.ani.SetBool("IsMoving", true);
 
+        if(enemy.melee==false)
         RangedAttack(); 
 
         //Debug.Log("Target in Range");

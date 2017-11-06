@@ -35,7 +35,7 @@ public class Health : MonoBehaviour {
             GetComponent<EnemyAttack>().enabled = false;
             GetComponent<Collider>().enabled = false;
             anim.SetTrigger("die");
-            Destroy(gameObject, 2.0f);
+            Destroy(gameObject, 5.0f);
             
         }
     }
