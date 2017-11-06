@@ -2,12 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Specifically for the VatganEnemy guy
+
 public class enemy : character {
 
     private IEnemyState currentState;
 
     public GameObject target { get; set; }
     public GameObject player;
+    public int power = 10;
+    public bool melee;
+    public bool passive;
 
     public GameObject shot;//enemy ranged attack prefab
 
@@ -65,12 +70,12 @@ public class enemy : character {
         {
             if (hitEdge)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 90, 0), 5 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y-90, 0), 5 * Time.deltaTime);
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
             else
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, -90, 0), 5 * Time.deltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y+90, 0), 5 * Time.deltaTime);
                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
             }
             
@@ -80,33 +85,41 @@ public class enemy : character {
     
     public void ThrowAttack()
     {
-        Instantiate(shot,transform.position,transform.rotation);
+        if (shot != null)
+            Instantiate(shot, transform.position, transform.rotation);
+        else
+            return;
     }
 
     void OnTriggerEnter(Collider other)
     {
         currentState.OnTriggerEnter(other);
     }
-  
-   /* public override IEnumerator TakeDamage()
+
+    void OnTriggerStay(Collider other)
     {
-        //health-=some dmg;
-        if(!isDead)
-        {
-            //ani.SetTrigger("damage");
-        }
-        else
-        {
-            ani.SetTrigger("die");
-            yield return null;
-        }
+        currentState.OnTriggerStay(other);
     }
 
-    public override bool isDead
-    {
-        get
-        {
-            return health <= 0;
-        }
-    }*/
+    /* public override IEnumerator TakeDamage()
+     {
+         //health-=some dmg;
+         if(!isDead)
+         {
+             //ani.SetTrigger("damage");
+         }
+         else
+         {
+             ani.SetTrigger("die");
+             yield return null;
+         }
+     }
+
+     public override bool isDead
+     {
+         get
+         {
+             return health <= 0;
+         }
+     }*/
 }

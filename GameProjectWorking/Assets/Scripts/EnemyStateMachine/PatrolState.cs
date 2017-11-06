@@ -15,7 +15,7 @@ public class PatrolState : IEnemyState
 
     public void Execute()
     {
-        Debug.Log("In Patrol State");
+        //Debug.Log("In Patrol State");
         Patrol();
 
         enemy.Move();
@@ -38,8 +38,18 @@ public class PatrolState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Player") ;
+        if(other.gameObject.tag=="Bullet"|| other.gameObject.tag == "Dagger")
+        {
+            enemy.target = enemy.player;
+        }
+
+        if (other.gameObject.tag != "Player"&& other.gameObject.tag!="Bullet" && other.gameObject.tag != "Dagger") ;
         enemy.hitEdge = !enemy.hitEdge;//TESTING purposes only
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+
     }
 
     private void Patrol()

@@ -14,7 +14,7 @@ public abstract class character : MonoBehaviour {
 
    // public abstract bool isDead { get; }
 
-    public bool Attack { get; set; }
+    //public bool Attack { get; set; }
     
 	public virtual void Start ()
     {

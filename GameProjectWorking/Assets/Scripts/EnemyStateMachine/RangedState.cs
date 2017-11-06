@@ -21,15 +21,22 @@ public class RangedState : IEnemyState
 
         RangedAttack(); 
 
-        Debug.Log("Target in Range");
+        //Debug.Log("Target in Range");
 
-        if(enemy.target!=null&&Vector3.Distance(enemy.transform.position,enemy.target.GetComponent<Transform>().position)>0.5f&&enemy.GetComponent<Health>().health>=4)
+        if (enemy.target != null)
         {
-            enemy.Move();
-        }
-        else if(enemy.GetComponent<Health>().health<4)
-        {
-            enemy.ChangeState(new RetreatState());
+            if (enemy.GetComponent<Health>().health < 4)
+            {
+                enemy.ChangeState(new RetreatState());
+            }
+            if (Vector3.Distance(enemy.transform.position, enemy.target.GetComponent<Transform>().position) > 5.0f)
+            {
+                enemy.Move();
+            }
+            if (Vector3.Distance(enemy.transform.position, enemy.target.GetComponent<Transform>().position) <= 5.0f && enemy.melee == true)
+            {
+                enemy.ChangeState(new MeleeState());
+            }
         }
         else
         {
@@ -46,6 +53,11 @@ public class RangedState : IEnemyState
     {
         if (other.gameObject.tag == "Bullet")
             enemy.target = enemy.player;
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+       
     }
 
     public void RangedAttack()
