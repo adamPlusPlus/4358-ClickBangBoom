@@ -7,7 +7,7 @@ public class IdleState : IEnemyState
     private enemy enemy;
 
     private float idleTimer;
-    private float idleDuration=5;//stay in idle state for 5 sec
+    //private float idleDuration=5;//stay in idle state for 5 sec
 
     public void Enter(enemy enemy)
     {
@@ -50,7 +50,7 @@ public class IdleState : IEnemyState
 
         idleTimer += Time.deltaTime;
 
-        if(idleTimer>=idleDuration)
+        if(idleTimer>=enemy.idleTime)
         {
             enemy.ChangeState(new PatrolState());
         }

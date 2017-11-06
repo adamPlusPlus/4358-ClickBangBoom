@@ -10,7 +10,7 @@ public class enemySight : MonoBehaviour {
     {
         if(other.tag=="Player")
         {
-            if(enemy.GetComponent<enemy>().melee==false)
+            if(enemy.GetComponent<enemy>().passive==false)
             enemy.target = other.gameObject;
         }
     }

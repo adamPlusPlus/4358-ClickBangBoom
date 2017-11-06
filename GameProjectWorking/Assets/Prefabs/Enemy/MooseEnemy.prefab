@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 136244522956795478}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,14 +205,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ae9270cbc8f7743bd4574ce77776a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   player: {fileID: 0}
   power: 10
   melee: 1
   passive: 1
+  idleTime: 5
+  patrolTime: 10
   shot: {fileID: 0}
-  hitEdge: 1
-  move: 0
+  waypoints: []
+  num: 0
+  minDist: 1
+  rand: 0
 --- !u!135 &135933322441693922
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -223,8 +227,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 5.57
-  m_Center: {x: 0, y: 0, z: 3.09}
+  m_Radius: 9.9
+  m_Center: {x: 0, y: 0, z: 7.05}
 --- !u!136 &136244522956795478
 CapsuleCollider:
   m_ObjectHideFlags: 1

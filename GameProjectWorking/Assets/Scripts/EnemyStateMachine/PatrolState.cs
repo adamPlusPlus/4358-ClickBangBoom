@@ -6,7 +6,7 @@ public class PatrolState : IEnemyState
 {
     private enemy enemy;
     private float patrolTimer;
-    private float patrolDuration=10;
+    //private float patrolDuration=10;
 
     public void Enter(enemy enemy)
     {
@@ -58,7 +58,7 @@ public class PatrolState : IEnemyState
 
         patrolTimer += Time.deltaTime;
 
-        if (patrolTimer >= patrolDuration)
+        if (patrolTimer >= enemy.patrolTime)
         {
             enemy.ChangeState(new IdleState());
         }

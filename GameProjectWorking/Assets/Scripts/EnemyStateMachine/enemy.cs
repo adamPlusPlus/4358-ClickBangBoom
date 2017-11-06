@@ -13,6 +13,8 @@ public class enemy : character {
     public int power = 10;
     public bool melee;
     public bool passive;
+    public float idleTime=5;
+    public float patrolTime = 10;
 
     public GameObject shot;//enemy ranged attack prefab
 
