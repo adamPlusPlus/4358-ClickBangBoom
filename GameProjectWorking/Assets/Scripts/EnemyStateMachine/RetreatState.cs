@@ -15,10 +15,9 @@ public class RetreatState : IEnemyState {
 
     public void Execute()
     {
-        Debug.Log("Running Away");
+        //Debug.Log("Running Away");
         enemy.ani.SetBool("IsRunning", true);
         Retreat();
-
     }
 
     public void Exit()
@@ -31,11 +30,16 @@ public class RetreatState : IEnemyState {
 
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        
+    }
+
     public void Retreat()
     {
         if(enemy.target!=null)
         enemy.transform.rotation = Quaternion.LookRotation(enemy.transform.position - enemy.player.GetComponent<Transform>().position);
-        enemy.transform.Translate(Vector3.forward * 10.0f * Time.deltaTime);
+        enemy.transform.Translate(Vector3.forward * 12.0f * Time.deltaTime);
 
         retreatTimer += Time.deltaTime;
 

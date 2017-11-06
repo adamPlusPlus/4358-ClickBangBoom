@@ -17,7 +17,7 @@ public class IdleState : IEnemyState
 
     public void Execute()
     {
-        Debug.Log("In Idle State");
+        //Debug.Log("In Idle State");
         Idle();
 
         if(enemy.target!=null)
@@ -33,10 +33,15 @@ public class IdleState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Bullet")
+        if(other.gameObject.tag=="Bullet" || other.gameObject.tag == "Dagger")
         {
             enemy.target = enemy.player; 
         }
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+       
     }
 
     private void Idle()

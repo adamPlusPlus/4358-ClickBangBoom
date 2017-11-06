@@ -10,9 +10,11 @@ public class enemySight : MonoBehaviour {
     {
         if(other.tag=="Player")
         {
+            if(enemy.GetComponent<enemy>().melee==false)
             enemy.target = other.gameObject;
         }
     }
+
     private void OnTriggerExit(Collider other)
     {
         if(other.tag=="Player")

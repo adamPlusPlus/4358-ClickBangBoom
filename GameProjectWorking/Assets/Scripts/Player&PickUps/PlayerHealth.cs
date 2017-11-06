@@ -11,7 +11,10 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
-    
+    //invincible between attacks
+    private float invincibleTime=1.0f;
+    private float nextDamage;
+
     Animator anim;                                              // Reference to the Animator component.
     //AudioSource playerAudio;                                    // Reference to the AudioSource component.
     PlayerControl playerMovement;                              // Reference to the player's movement.
@@ -56,23 +59,28 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        // Set the damaged flag so the screen will flash.
-        damaged = true;
-
-        // Reduce the current health by the damage amount.
-        currentHealth -= amount;
-
-        // Set the health bar's value to the current health.
-        healthSlider.value = currentHealth;
-
-        // Play the hurt sound effect.
-        //playerAudio.Play();
-
-        // If the player has lost all it's health and the death flag hasn't been set yet...
-        if (currentHealth <= 0 && !isDead)
+        if (Time.time > nextDamage)
         {
-            // ... it should die.
-            Death();
+            // Set the damaged flag so the screen will flash.
+            damaged = true;
+
+            // Reduce the current health by the damage amount.
+            currentHealth -= amount;
+
+            // Set the health bar's value to the current health.
+            healthSlider.value = currentHealth;
+
+            // Play the hurt sound effect.
+            //playerAudio.Play();
+
+            // If the player has lost all it's health and the death flag hasn't been set yet...
+            if (currentHealth <= 0 && !isDead)
+            {
+                // ... it should die.
+                Death();
+            }
+
+            nextDamage = Time.time + invincibleTime;
         }
     }
 
