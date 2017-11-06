@@ -43,8 +43,8 @@ public class PatrolState : IEnemyState
             enemy.target = enemy.player;
         }
 
-        if (other.gameObject.tag != "Player"&& other.gameObject.tag!="Bullet" && other.gameObject.tag != "Dagger") ;
-        enemy.hitEdge = !enemy.hitEdge;//TESTING purposes only
+        //if (other.gameObject.tag != "Player"&& other.gameObject.tag!="Bullet" && other.gameObject.tag != "Dagger") ;
+        //enemy.hitEdge = !enemy.hitEdge;//TESTING purposes only
     }
 
     public void OnTriggerStay(Collider other)

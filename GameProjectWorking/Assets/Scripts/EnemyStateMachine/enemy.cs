@@ -16,9 +16,19 @@ public class enemy : character {
 
     public GameObject shot;//enemy ranged attack prefab
 
+    //patrol path using waypoints:
+    public GameObject[] waypoints;
+    public int num = 0;
+
+    public float minDist;
+
+    public bool rand = false;
+    //public bool go = true;
+
+
     //not sure how to control movement, just testing something:
-    public bool hitEdge=true;
-    public int move;
+    //public bool hitEdge=true;
+    //public int move;
     
 	public override void Start ()
     {
@@ -62,7 +72,41 @@ public class enemy : character {
         }*/
     }
 
-    public void Move()// just testing
+    public void Move()
+    {
+        float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
+
+        if (target==null)
+        {
+            if (dist > minDist)
+            {
+                gameObject.transform.LookAt(waypoints[num].transform.position);
+                gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
+            }
+            else
+            {
+                if (!rand)
+                {
+                    if (num + 1 == waypoints.Length)
+                    {
+                        num = 0;
+                    }
+                    else
+                    {
+                        num++;
+                    }
+                }
+                else
+                {
+                    num = Random.Range(0, waypoints.Length);
+                }
+            }
+        }
+        else
+            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+    }
+
+   /* public void Move()// just testing
     {
         //ani.SetBool("isMoving", true);
 
@@ -81,8 +125,8 @@ public class enemy : character {
             
         }
 
-    }
-    
+    }*/
+
     public void ThrowAttack()
     {
         if (shot != null)
