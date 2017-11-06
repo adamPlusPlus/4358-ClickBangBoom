@@ -4,8 +4,8 @@ using UnityEngine;
 public class FlyingEnemyMovement : MonoBehaviour {
 
     Transform target;
-    int MoveSpeed = 10;
-    int MinDist = 9;
+    int MoveSpeed = 15;
+    int MinDist = 30;
     private Vector3 startPosition;
     private Animator anim;
     // Use this for initialization

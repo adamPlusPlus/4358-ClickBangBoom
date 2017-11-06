@@ -19,6 +19,10 @@ public class Health : MonoBehaviour {
     public void damage(int weaponPower)//assuming weaponPower is positive
     {
         health -= weaponPower;
+        if (health <= 0)
+        {
+            ScoreManager.score += scoreValue;
+        }
     }
 	
 	// Update is called once per frame
@@ -31,8 +35,8 @@ public class Health : MonoBehaviour {
             GetComponent<EnemyAttack>().enabled = false;
             GetComponent<Collider>().enabled = false;
             anim.SetTrigger("die");
-            Destroy(gameObject, 5.0f);
-            ScoreManager.score += scoreValue;
+            Destroy(gameObject, 2.0f);
+            
         }
     }
 }
