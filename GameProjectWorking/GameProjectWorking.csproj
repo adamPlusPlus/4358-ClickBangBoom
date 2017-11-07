@@ -157,7 +157,6 @@
     <Compile Include="Assets\Scripts\Camera&amp;UI\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\PauseMenu.cs" />
-    <Compile Include="Assets\Scripts\Dagger(OUTDATED).cs" />
     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -183,7 +182,7 @@
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
-    <Compile Include="Assets\Scripts\Stab(OUTDATED).cs" />
+    <Compile Include="Assets\Scripts\SpawnTrigger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />
