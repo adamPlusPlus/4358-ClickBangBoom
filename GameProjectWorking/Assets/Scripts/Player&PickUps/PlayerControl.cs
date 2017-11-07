@@ -5,11 +5,20 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    private float speed;
+    public float baseSpeed = 7;
+    public float runSpeedFactor = 2.0f;
+    public float aimSpeedFactor = 0.75f;
+    public float tiredSpeedFactor = 0.5f;
 
-    public float speed = 5;
-    private float startSpeed;
+    public float staminaDepletionFactor = 1.0f,
+                 staminaRecoveryFactor  = 1.0f; 
+
+    public bool tired = false;
+     
     public float currentStamina;
     public float maxStamina = 3;
+    public float tiredLimit = 2;
     
     //public Slider staminaBar; USING RECTANGLE INSTEAD
     Rect staminaBar;
@@ -31,7 +40,6 @@ public class PlayerControl : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startSpeed = speed;
         currentStamina = maxStamina;
         playerBody = gameObject.GetComponent<Rigidbody>();
         target = gameObject.GetComponent<Transform>();
@@ -49,24 +57,42 @@ public class PlayerControl : MonoBehaviour
         //grab user input
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
+        
+        // figure out our speed
+        bool runKey = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.Space);
+        speed = baseSpeed;
+        anim.speed = 1.0f;
+        if(anim.GetBool("aim")) {
+          speed *= aimSpeedFactor;
+          //anim.speed *= aimSpeedFactor;
+        }
+        if(runKey && !tired) { // running
+          if(currentStamina < 0.1) {
+            currentStamina = 0; 
+            tired = true;
+          }
+          else {
+            speed *= runSpeedFactor;
+            //anim.speed *= runSpeedFactor;
+            currentStamina -= Time.deltaTime * staminaDepletionFactor;
+          }
+        }
+        else { // not running
+          if(currentStamina < maxStamina)
+            currentStamina += Time.deltaTime;
+          else
+            currentStamina = maxStamina * staminaRecoveryFactor;
+        }
 
-        if ((Input.GetKey(KeyCode.LeftShift) ||Input.GetKey(KeyCode.RightShift)|| Input.GetKey(KeyCode.Space))&&currentStamina>0.01)
-        {
-            if (currentStamina < 0.1)
-            {
-                currentStamina = 0;
-                speed = startSpeed;
-                return;
-            }
-            speed =startSpeed*2;
-            currentStamina -= Time.deltaTime;
+        if(tired) {
+          if(currentStamina >= tiredLimit)
+            tired = false;
+          else {
+            speed *= tiredSpeedFactor;
+            anim.speed *= tiredSpeedFactor;
+          }
         }
-        else
-        {
-            speed = startSpeed;
-            if (currentStamina < maxStamina)
-                currentStamina += Time.deltaTime;
-        }
+          
 
         //Rotation from key input (8 directional movement)
         if (horizontalMovement > 0.1 && Mathf.Abs(verticalMovement) < 0.6)//right

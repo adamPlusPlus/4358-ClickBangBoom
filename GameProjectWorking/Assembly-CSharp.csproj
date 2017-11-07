@@ -44,10 +44,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>D:/Development/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>D:/Development/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -119,22 +119,38 @@
      <Compile Include="Assets\Prefabs\RainMaker\Prefab\RainCollision.cs" />
      <Compile Include="Assets\Prefabs\RainMaker\Prefab\RainScript.cs" />
      <Compile Include="Assets\Prefabs\RainMaker\Prefab\RainScript2D.cs" />
-     <Compile Include="Assets\Scripts\AmmoPickUp.cs" />
-     <Compile Include="Assets\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Scripts\CameraControl.cs" />
-     <Compile Include="Assets\Scripts\CameraShake.cs" />
-     <Compile Include="Assets\Scripts\Dagger.cs" />
+     <Compile Include="Assets\Scripts\batBullet.cs" />
+     <Compile Include="Assets\Scripts\Camera&amp;UI\CameraControl.cs" />
+     <Compile Include="Assets\Scripts\Camera&amp;UI\CameraShake.cs" />
+     <Compile Include="Assets\Scripts\Camera&amp;UI\MainMenu.cs" />
+     <Compile Include="Assets\Scripts\Camera&amp;UI\PauseMenu.cs" />
+     <Compile Include="Assets\Scripts\Dagger(OUTDATED).cs" />
+     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
      <Compile Include="Assets\Scripts\EnemyAttack.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\EnemyMovement.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\character.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\enemy.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\enemySight.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\IdleState.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\IEnemyState.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\MeleeState.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\PatrolState.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\RangedState.cs" />
+     <Compile Include="Assets\Scripts\EnemyStateMachine\RetreatState.cs" />
      <Compile Include="Assets\Scripts\FlyingEnemyMovement.cs" />
      <Compile Include="Assets\Scripts\GameOverManager.cs" />
-     <Compile Include="Assets\Scripts\Gun.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\PlayerControl.cs" />
-     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\IgnoreCollision.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\AmmoPickUp.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\Bullet.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\Gun.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\HealthPickup.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\MeleeAttack.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
-     <Compile Include="Assets\Scripts\Stab.cs" />
+     <Compile Include="Assets\Scripts\Stab(OUTDATED).cs" />
      <None Include="Assets\PostProcessing\Resources\Shaders\DepthOfField.shader" />
      <None Include="Assets\Pixelation\Readme.txt" />
      <None Include="Assets\PostProcessing\Resources\Shaders\MotionBlur.cginc" />
@@ -185,25 +201,25 @@
      <None Include="Assets\PostProcessing\Resources\Shaders\AmbientOcclusion.cginc" />
      <None Include="Assets\PostProcessing\Editor Resources\Monitors\WaveformCompute.compute" />
  <Reference Include="UnityEngine.UI">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Timeline">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>D:/Development/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

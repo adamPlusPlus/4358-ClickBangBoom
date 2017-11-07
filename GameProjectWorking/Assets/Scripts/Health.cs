@@ -7,7 +7,9 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
     public int health;//how many hits before it dies
+    public int defense;
     public int scoreValue = 10;
+    public bool Dead {get {return health <= 0;}}
     private Animator anim;
 
     // Use this for initialization
@@ -16,13 +18,17 @@ public class Health : MonoBehaviour {
         anim = GetComponentInChildren<Animator>();
     }
 
-    public void damage(int weaponPower)//assuming weaponPower is positive
+    public int damage(int weaponPower)//assuming weaponPower is positive
     {
-        health -= weaponPower;
+        int effectiveDamage = weaponPower - defense;
+        if(effectiveDamage <= 0)
+          return 0;
+        health -= effectiveDamage;
+        return effectiveDamage;
     }
 	
 	// Update is called once per frame
-	void Update ()
+    void Update ()
     {
         if (health <= 0) //handles death
         {

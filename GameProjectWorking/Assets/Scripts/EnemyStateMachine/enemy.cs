@@ -15,13 +15,13 @@ public class enemy : character {
     public bool hitEdge=true;
     public int move;
     
-	public override void Start ()
+    public override void Start ()
     {
         base.Start();
         ChangeState(new IdleState());
-	}
-	
-	void Update ()
+    }
+
+    public override void Update ()
     {
         if(GetComponent<Health>().health > 0)//need to fix this
         {
@@ -86,6 +86,8 @@ public class enemy : character {
     void OnTriggerEnter(Collider other)
     {
         currentState.OnTriggerEnter(other);
+        //if(other.gameObject.tag == "Bullet")
+          //TakeDamage(other.GetComponent<Bullet>().power);
     }
   
    /* public override IEnumerator TakeDamage()

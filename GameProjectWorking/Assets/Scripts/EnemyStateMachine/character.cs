@@ -8,6 +8,11 @@ public abstract class character : MonoBehaviour {
 
     [SerializeField]
     protected float speed;
+   
+   public bool dead = false;
+   public bool invincible = false;
+   public float damageTime;
+   protected float nextVulnerableTime;
 
    // [SerializeField]
    // protected int health;
@@ -16,15 +21,13 @@ public abstract class character : MonoBehaviour {
 
     public bool Attack { get; set; }
     
-	public virtual void Start ()
+    public virtual void Start()
     {
         ani = GetComponentInChildren<Animator>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+        
+        // Update is called once per frame
+    public virtual void Update() { }
 
     /*public abstract IEnumerator TakeDamage();
 
