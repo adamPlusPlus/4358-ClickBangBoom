@@ -10,6 +10,9 @@ public class PlayerControl : MonoBehaviour
     private float startSpeed;
     public float currentStamina;
     public float maxStamina = 3;
+
+    //Test
+    public Transform Camera2;
     
     //public Slider staminaBar; USING RECTANGLE INSTEAD
     Rect staminaBar;
@@ -46,6 +49,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Camera2.transform.rotation = gameObject.transform.rotation;
         //grab user input
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
@@ -64,7 +68,7 @@ public class PlayerControl : MonoBehaviour
         else
         {
             speed = startSpeed;
-            if (currentStamina < maxStamina)
+            if (currentStamina < maxStamina);
                 currentStamina += Time.deltaTime;
         }
 
