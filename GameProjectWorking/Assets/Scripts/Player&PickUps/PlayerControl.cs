@@ -49,7 +49,7 @@ public class PlayerControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Camera2.transform.rotation = gameObject.transform.rotation;
+        //Camera2.transform.rotation = gameObject.transform.rotation;
         //grab user input
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
