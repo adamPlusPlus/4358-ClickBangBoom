@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 54294801259119462}
   - component: {fileID: 135290276255801808}
   - component: {fileID: 114142320211177098}
+  - component: {fileID: 114897250040387364}
+  - component: {fileID: 108341846255692782}
   m_Layer: 9
   m_Name: Bullet
   m_TagString: Bullet
@@ -58,6 +60,56 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!108 &108341846255692782
+Light:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717851940822140}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 2
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!114 &114142320211177098
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -70,6 +122,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1
+--- !u!114 &114897250040387364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1717851940822140}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4f0ece35971814e941583e57a6efd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RSpeed: 0
+  HSpeed: 0
+  HAmplitude: 0
+  Child: {fileID: 0}
 --- !u!135 &135290276255801808
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -114,8 +181,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 93922c45ea302bb40a8b124ebee5c90a, type: 3}
-  m_Color: {r: 0.5147059, g: 0.5147059, b: 0.10596887, a: 1}
+  m_Sprite: {fileID: 21300000, guid: bc8ffaaeed8d160468444d4655d46703, type: 3}
+  m_Color: {r: 0.8235294, g: 0.8235294, b: 0.18771625, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
