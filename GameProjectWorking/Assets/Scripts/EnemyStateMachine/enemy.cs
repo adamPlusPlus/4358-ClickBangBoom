@@ -77,8 +77,14 @@ public class enemy : character {
         {
             if (dist > minDist)
             {
-                gameObject.transform.LookAt(waypoints[num].transform.position);
-                gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
+                Vector3 targetLocation = waypoints[num].transform.position;
+                //targetLocation.y = 0;
+                gameObject.transform.LookAt(targetLocation);
+
+                Vector3 moveDirection = Vector3.forward;
+                moveDirection.y = 0;
+                transform.Translate(moveDirection * speed * Time.deltaTime);
+                // gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
             }
             else
             {
@@ -100,7 +106,11 @@ public class enemy : character {
             }
         }
         else
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        {
+            Vector3 moveDirection = Vector3.forward;
+            moveDirection.y = 0;
+            transform.Translate(moveDirection * speed * Time.deltaTime);
+        }
     }
 
    /* public void Move()// just testing

@@ -54,7 +54,7 @@ public class PlayerControl : MonoBehaviour
         horizontalMovement = Input.GetAxis("Horizontal");
         verticalMovement = Input.GetAxis("Vertical");
 
-        if ((Input.GetKey(KeyCode.LeftShift) ||Input.GetKey(KeyCode.RightShift)|| Input.GetKey(KeyCode.Space))&&currentStamina>0.01)
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) || Input.GetKey(KeyCode.Space)) && currentStamina > 0.01)
         {
             if (currentStamina < 0.1)
             {
@@ -62,13 +62,13 @@ public class PlayerControl : MonoBehaviour
                 speed = startSpeed;
                 return;
             }
-            speed =startSpeed*2;
+            speed = startSpeed * 2;
             currentStamina -= Time.deltaTime;
         }
         else
         {
             speed = startSpeed;
-            if (currentStamina < maxStamina);
+            if (currentStamina < maxStamina)
                 currentStamina += Time.deltaTime;
         }
 
