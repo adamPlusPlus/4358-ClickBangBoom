@@ -7,6 +7,7 @@ using UnityEngine;
 public class Health : MonoBehaviour {
 
     public int health;//how many hits before it dies
+    public int defense;//how much it takes away from bullet's pierce
     public int scoreValue = 10;
     private Animator anim;
 

@@ -346,6 +346,7 @@
     <Compile Include="Assets\Scripts\Player&amp;PickUps\Gun.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\healthPickUp.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\melee.cs" />
+    <Compile Include="Assets\Scripts\Player&amp;PickUps\PiercingBullet.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />

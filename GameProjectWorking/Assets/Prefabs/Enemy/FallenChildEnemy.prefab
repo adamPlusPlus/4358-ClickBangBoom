@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  defense: 1
   scoreValue: 10
 --- !u!114 &114927389892620502
 MonoBehaviour:
