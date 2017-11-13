@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 65502227317028602}
   - component: {fileID: 114721708109381222}
   - component: {fileID: 54019344415414464}
-  - component: {fileID: 114365945280680154}
   - component: {fileID: 195312069352958580}
   - component: {fileID: 114949181593661822}
   - component: {fileID: 114025159096534756}
@@ -121,9 +120,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 122
   m_CollisionDetection: 0
 --- !u!54 &54680864735912584
 Rigidbody:
@@ -194,18 +193,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 114721708109381222}
---- !u!114 &114365945280680154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1105245753569722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0f316c60d1e504297764d9f646c53c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  other: {fileID: 0}
 --- !u!114 &114721708109381222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,9 +206,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   player: {fileID: 0}
+  power: 10
+  melee: 0
+  passive: 0
+  idleTime: 5
+  patrolTime: 10
   shot: {fileID: 1739931370473804, guid: 520f833bf7d481043bc77ea92dc5d695, type: 2}
-  hitEdge: 1
-  move: 0
+  waypoints: []
+  num: 0
+  minDist: 0
+  rand: 0
 --- !u!114 &114949181593661822
 MonoBehaviour:
   m_ObjectHideFlags: 1

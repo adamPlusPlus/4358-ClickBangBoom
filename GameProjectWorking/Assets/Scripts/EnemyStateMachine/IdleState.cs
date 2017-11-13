@@ -50,7 +50,7 @@ public class IdleState : IEnemyState
 
         idleTimer += Time.deltaTime;
 
-        if(idleTimer>=enemy.idleTime)
+        if(idleTimer>=enemy.idleTime&&enemy.num!=-1)
         {
             enemy.ChangeState(new PatrolState());
         }

@@ -20,7 +20,7 @@ public class enemy : character {
 
     //patrol path using waypoints:
     public GameObject[] waypoints;
-    public int num = 0;
+    public int num = -1;//by default, there is no movement
 
     public float minDist;
 
@@ -71,6 +71,17 @@ public class enemy : character {
 
     public void Move()
     {
+        if (num == -1)
+        {
+            if (target == null)
+                return;
+            else
+            {
+                Vector3 moveDirection = Vector3.forward;
+                moveDirection.y = 0;
+                transform.Translate(moveDirection * speed * Time.deltaTime);
+            }
+        }
         float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
 
         if (target==null)

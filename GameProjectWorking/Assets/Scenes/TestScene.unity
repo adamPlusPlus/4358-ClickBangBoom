@@ -875,7 +875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &226207234
 Transform:
   m_ObjectHideFlags: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   currentStamina: 0
-  maxStamina: 3
+  maxStamina: 10
   Camera2: {fileID: 1008495569}
   rotationSpeed: 10
 --- !u!65 &229093030
@@ -1288,8 +1288,7 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 229093028}
-    - target: {fileID: 114365945280680154, guid: 07db050b0c56bca4188f607d42cc179e,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: other
       value: 
       objectReference: {fileID: 229093030}
@@ -1300,7 +1299,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1105245753569722, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1518939535003114, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_TagString
@@ -2641,8 +2640,7 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 229093028}
-    - target: {fileID: 114365945280680154, guid: 07db050b0c56bca4188f607d42cc179e,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: other
       value: 
       objectReference: {fileID: 229093030}
@@ -2653,7 +2651,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1105245753569722, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1518939535003114, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_TagString
@@ -4202,8 +4200,7 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 229093028}
-    - target: {fileID: 114365945280680154, guid: 07db050b0c56bca4188f607d42cc179e,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: other
       value: 
       objectReference: {fileID: 229093030}
@@ -8181,7 +8178,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4606901152615290, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 118.46
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 4606901152615290, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8189,7 +8186,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4606901152615290, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -66.93
+      value: -65.8
       objectReference: {fileID: 0}
     - target: {fileID: 4606901152615290, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -8216,8 +8213,7 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 229093028}
-    - target: {fileID: 114365945280680154, guid: 07db050b0c56bca4188f607d42cc179e,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: other
       value: 
       objectReference: {fileID: 229093030}
@@ -8228,7 +8224,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1105245753569722, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1518939535003114, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_TagString
@@ -8262,6 +8258,11 @@ Prefab:
     - target: {fileID: 4606901152615290, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 114721708109381222, guid: 07db050b0c56bca4188f607d42cc179e,
+        type: 2}
+      propertyPath: num
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07db050b0c56bca4188f607d42cc179e, type: 2}
