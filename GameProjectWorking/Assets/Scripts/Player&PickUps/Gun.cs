@@ -15,6 +15,7 @@ public class Gun : MonoBehaviour
 
     public int ammo = 30;
     public int power = 1;
+    public int piercePower = 5;
     public Text ammoCount;
 
     Animator anim;
@@ -39,8 +40,8 @@ public class Gun : MonoBehaviour
             Camera.main.GetComponent<CameraShake>().enabled = true;
             anim.SetTrigger("fire");
             gunFire.Play();
-            /*if(shot.GetComponent<Bullet>())
-              shot.GetComponent<Bullet>().power = power;*/
+            shot.GetComponent<PiercingBullet>().power = power;
+            shot.GetComponent<PiercingBullet>().piercePower = piercePower;
             shot.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
             ammo--;
             Destroy(shot, destroyTime);//bullet flies for destroyedTime seconds, then it goes "out of range"
