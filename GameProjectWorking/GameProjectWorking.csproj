@@ -318,6 +318,7 @@
     <Compile Include="Assets\Scripts\Camera&amp;UI\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\DialogeToRecrute.cs" />
     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -332,6 +333,7 @@
     <Compile Include="Assets\Scripts\EnemyStateMachine\RangedState.cs" />
     <Compile Include="Assets\Scripts\EnemyStateMachine\RetreatState.cs" />
     <Compile Include="Assets\Scripts\FlyingEnemyMovement.cs" />
+    <Compile Include="Assets\Scripts\FriendlyAI\FriendlyAIMovement.cs" />
     <Compile Include="Assets\Scripts\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\IgnoreCollision.cs" />

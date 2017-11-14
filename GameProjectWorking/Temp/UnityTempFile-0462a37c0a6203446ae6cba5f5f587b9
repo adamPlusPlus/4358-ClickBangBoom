@@ -257,6 +257,7 @@ Assets/2DxFX/Scripts/2dxfx_AL/_2dxFX_AL_Threshold.cs
 Assets/2DxFX/Scripts/2dxfx_AL/_2dxFX_AL_Twist.cs
 Assets/2DxFX/Scripts/2dxfx_AL/_2dxFX_AL_WoodFX.cs
 Assets/Demigiant/DOTweenPro/DOTweenAnimation.cs
+Assets/dialogeToRecrute.cs
 Assets/EffectExamples/Shared/Scripts/DecalDestroyer.cs
 Assets/EffectExamples/Shared/Scripts/ExtinguishableFire.cs
 Assets/EffectExamples/Shared/Scripts/GunAim.cs
@@ -327,6 +328,7 @@ Assets/Scripts/batBullet.cs
 "Assets/Scripts/Camera&UI/CameraShake.cs"
 "Assets/Scripts/Camera&UI/MainMenu.cs"
 "Assets/Scripts/Camera&UI/PauseMenu.cs"
+Assets/Scripts/DialogeToRecrute.cs
 Assets/Scripts/DistanceShooterEnemy.cs
 Assets/Scripts/EnemyAttack.cs
 Assets/Scripts/EnemyManager.cs
@@ -341,6 +343,7 @@ Assets/Scripts/EnemyStateMachine/PatrolState.cs
 Assets/Scripts/EnemyStateMachine/RangedState.cs
 Assets/Scripts/EnemyStateMachine/RetreatState.cs
 Assets/Scripts/FlyingEnemyMovement.cs
+Assets/Scripts/FriendlyAI/FriendlyAIMovement.cs
 Assets/Scripts/GameOverManager.cs
 Assets/Scripts/Health.cs
 Assets/Scripts/IgnoreCollision.cs
