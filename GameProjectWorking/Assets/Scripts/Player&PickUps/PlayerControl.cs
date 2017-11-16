@@ -123,16 +123,16 @@ public class PlayerControl : MonoBehaviour
             angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
-        /*
-        //if (Input.GetMouseButton(1))
-        if(Input.GetButton("Fire1"))
+        
+        if (Input.GetMouseButton(1))
+       // if(Input.GetButton("Fire1"))
             anim.SetBool("aim", true);
-        //if (Input.GetMouseButtonUp(1))
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetMouseButtonUp(1))
+       // if (Input.GetButtonUp("Fire1"))
         {
             anim.SetBool("aim", false);
         }
-        */
+        
     }
     //
     void FixedUpdate()
@@ -146,8 +146,8 @@ public class PlayerControl : MonoBehaviour
     private void LateUpdate()
     {
         //Melee Attack:
-        //if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
+       // if(Input.GetMouseButtonDown(1))
         {
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
             anim.SetTrigger("melee");

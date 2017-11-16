@@ -53,11 +53,9 @@ public class Gun : MonoBehaviour
     {
         ammoCount.GetComponent<Text>().text = "Ammo: " + ammo;
 
-        if(Time.time > nextFire) {
-          if(Input.GetButton("Fire1"))
-            anim.SetBool("aim", true);
-          else if(Input.GetButtonUp("Fire1")) {
-            anim.SetBool("aim", false);
+        if(Input.GetMouseButton(1)) {
+          if(Time.time > nextFire && Input.GetButtonDown("Fire1")) {
+
             Vector3 mousePosition = Input.mousePosition;
             mousePosition.z = Camera.main.transform.position.y;
 
