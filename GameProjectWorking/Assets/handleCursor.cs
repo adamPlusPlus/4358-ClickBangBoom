@@ -14,26 +14,31 @@ public class handleCursor : MonoBehaviour {
 
     private void Start()
     {
-        setMouse();
+        SetMouse();
     }
 
-    void setMouse()
+    private void Update()
+    {
+        
+    }
+
+    public void SetMouse()
     {
         Cursor.SetCursor(mouse, hotSpot, cursorMode);
     }
 
-    void setInteractObject()
+    public void SetInteractObject()
     {
-        Cursor.SetCursor(interactObject, Vector2.zero, cursorMode);
+        Cursor.SetCursor(interactObject, hotSpot, cursorMode);
     }
 
-    void setInteractFriendly()
+    public void SetInteractFriendly()
     {
-        Cursor.SetCursor(interactFriendly, Vector2.zero, cursorMode);
+        Cursor.SetCursor(interactFriendly, hotSpot, cursorMode);
     }
 
-    void setInteractHostile()
+    void SetInteractHostile()
     {
-        Cursor.SetCursor(interactHostile, Vector2.zero, cursorMode);
+        Cursor.SetCursor(interactHostile, hotSpot, cursorMode);
     }
 }

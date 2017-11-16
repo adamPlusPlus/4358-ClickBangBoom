@@ -6481,7 +6481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouse: {fileID: 2800000, guid: bba4e06364bfea54db39d1f27b595586, type: 3}
   interactObject: {fileID: 2800000, guid: 6e9701b0ddab2ca4389ad3529b1df891, type: 3}
-  interactFriendly: {fileID: 2800000, guid: 6cbdd0f71ee94b444a71ad3bad43d5b9, type: 3}
+  interactFriendly: {fileID: 2800000, guid: 395047984584df2498c8e58faf6b3ee3, type: 3}
   interactHostile: {fileID: 2800000, guid: 395047984584df2498c8e58faf6b3ee3, type: 3}
   cursorMode: 0
   hotSpot: {x: 0, y: 0}
@@ -8546,7 +8546,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1353544663}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0.068, y: 0.014, z: 0}
+  m_LocalPosition: {x: 0.068, y: 0.014, z: -0.13}
   m_LocalScale: {x: 1.1538459, y: 1.1538471, z: 1}
   m_Children: []
   m_Father: {fileID: 229093034}
