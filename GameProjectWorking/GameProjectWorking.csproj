@@ -360,6 +360,8 @@
     <Compile Include="Assets\Scripts\GameOverManager.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
     <Compile Include="Assets\Scripts\IgnoreCollision.cs" />
+    <Compile Include="Assets\Scripts\LevelInteraction\captureController.cs" />
+    <Compile Include="Assets\Scripts\LevelInteraction\pointCapture.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\AmmoPickUp.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\Bullet.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\Gun.cs" />
