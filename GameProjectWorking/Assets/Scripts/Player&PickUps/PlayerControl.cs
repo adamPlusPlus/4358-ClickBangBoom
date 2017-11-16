@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour
     //Test
     public Transform Camera2;
     
-    //public Slider staminaBar; USING RECTANGLE INSTEAD
+    //public Slider staminaBar; using Rectangle instead
     Rect staminaBar;
     Texture2D staminaTexture;
 
@@ -138,8 +138,9 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         //move using physics
-        Vector3 move = new Vector3(horizontalMovement, 0f, verticalMovement);
-        playerBody.velocity = move * speed;
+        Vector3 move = new Vector3(horizontalMovement, 0f, verticalMovement) * speed ;
+        move.y = playerBody.velocity.y;
+        playerBody.velocity = move; 
     }
 
     private void LateUpdate()
