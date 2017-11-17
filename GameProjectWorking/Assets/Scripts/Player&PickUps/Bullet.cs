@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     public int power=1;
+    public int piercePower = 0;
 
     void OnTriggerEnter(Collider target)
     {

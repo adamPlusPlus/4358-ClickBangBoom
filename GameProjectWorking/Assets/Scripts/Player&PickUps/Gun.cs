@@ -14,8 +14,9 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
 
     public int ammo = 30;
-    public int power = 1;
-    public int piercePower = 5;
+    //Because piercing bullets and bullets use different scripts, changing their variables through a single gun script causes some issues
+    //public int power = 1;
+    //public int piercePower = 5;
     public Text ammoCount;
 
     Animator anim;
@@ -40,8 +41,8 @@ public class Gun : MonoBehaviour
             Camera.main.GetComponent<CameraShake>().enabled = true;
             anim.SetTrigger("fire");
             gunFire.Play();
-            shot.GetComponent<PiercingBullet>().power = power;
-            shot.GetComponent<PiercingBullet>().piercePower = piercePower;
+           // shot.GetComponent<PiercingBullet>().power = power;
+           // shot.GetComponent<PiercingBullet>().piercePower = piercePower;
             shot.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
             ammo--;
             Destroy(shot, destroyTime);//bullet flies for destroyedTime seconds, then it goes "out of range"
