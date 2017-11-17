@@ -366,7 +366,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 18523531}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d33f4c93e586da546ad019316e2f47c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 72dbc1f1e1c74484bb7a84c3ae453bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   reloadTime: 0.5
@@ -374,6 +374,8 @@ MonoBehaviour:
   shotSpeed: 30
   bullet: {fileID: 1668679239139086, guid: ba6739de19f18524f988bf000ff77b47, type: 2}
   ammo: 30
+  power: 1
+  piercePower: 5
   ammoCount: {fileID: 1676116738}
 --- !u!1 &33704568
 GameObject:
@@ -1174,6 +1176,7 @@ GameObject:
   - component: {fileID: 229093031}
   - component: {fileID: 229093030}
   - component: {fileID: 229093029}
+  - component: {fileID: 229093037}
   - component: {fileID: 229093035}
   - component: {fileID: 229093036}
   m_Layer: 0
@@ -1333,6 +1336,21 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &229093037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 229093028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6256e32bb68a340890b2f990d6124d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 1353544663}
+  - {fileID: 18523531}
+  howMany: 2
 --- !u!4 &284109022 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4440083173191954, guid: 7a685a36046ea1e4ea5282f74d6df385,
@@ -6033,7 +6051,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1353544664
 Transform:
   m_ObjectHideFlags: 0
@@ -6184,7 +6202,8 @@ MonoBehaviour:
   destroyTime: 5
   shotSpeed: 30
   bullet: {fileID: 1717851940822140, guid: 027503339766e594baf7598530bb1847, type: 2}
-  ammo: 30
+  ammo: 45
+  power: 1
   ammoCount: {fileID: 1676116738}
 --- !u!82 &1353544668
 AudioSource:
@@ -8046,11 +8065,11 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: 'Ammo: '
 --- !u!222 &1676116739
