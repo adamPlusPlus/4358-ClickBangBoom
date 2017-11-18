@@ -60,7 +60,9 @@ public class PlayerHealth : MonoBehaviour
             playerMovement.enabled = false;
             for (int i = 0; i < transform.childCount; ++i)
             { transform.GetChild(i).gameObject.active = false; }
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
         }
+       
     
     }
 
