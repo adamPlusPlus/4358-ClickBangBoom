@@ -21,13 +21,17 @@ public class PiercingGun : MonoBehaviour {
 
     private Light gunLight;
     private AudioSource gunFire;
+    public LineRenderer gunLine;
     // Use this for initialization
     void Start()
     {
         anim = GetComponentInParent<Animator>();
         gunLight = GetComponent<Light>();
         gunFire = GetComponent<AudioSource>();
+        gunLine = GetComponent<LineRenderer>();
         ammoCount.GetComponent<Text>().text = "Ammo: " + ammo+"\nPiercing Gun";
+
+        gunLine.enabled = false;
     }
 
     void shoot(Vector3 start, Vector3 target)
@@ -36,13 +40,14 @@ public class PiercingGun : MonoBehaviour {
         if (ammo > 0)
         {
             Vector3 direction = (target - start).normalized;
-            GameObject shot = Instantiate(bullet, start, Quaternion.Euler(90, 0, 0));
+            GameObject shot = Instantiate(bullet, transform.position, transform.rotation);
+            //GameObject shot = Instantiate(bullet, start, Quaternion.Euler(90, 0, 0));
             Camera.main.GetComponent<CameraShake>().enabled = true;
             anim.SetTrigger("fire");
             gunFire.Play();
             shot.GetComponent<PiercingBullet>().power = power;
             shot.GetComponent<PiercingBullet>().piercePower = piercePower;
-            shot.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
+           // shot.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
             ammo--;
             Destroy(shot, destroyTime);//bullet flies for destroyedTime seconds, then it goes "out of range"
         }
@@ -55,6 +60,9 @@ public class PiercingGun : MonoBehaviour {
 
         if (Input.GetMouseButton(1))
         {
+            GetComponentInParent<PlayerControl>().anim.SetBool("aim", true);
+            gunLine.enabled = true;
+
             if (Time.time > nextFire && Input.GetButtonDown("Fire1"))
             {
 
@@ -68,6 +76,11 @@ public class PiercingGun : MonoBehaviour {
             }
         }
 
+        if (Input.GetMouseButtonUp(1))
+        {
+            GetComponentInParent<PlayerControl>().anim.SetBool("aim", false);
+            gunLine.enabled = false;
+        }
 
     }
 }

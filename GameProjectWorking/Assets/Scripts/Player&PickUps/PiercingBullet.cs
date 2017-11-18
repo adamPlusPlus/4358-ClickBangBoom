@@ -6,6 +6,12 @@ public class PiercingBullet : MonoBehaviour {
 
     public int power = 1;
     public int piercePower = 5; //can go through enemies until their defenses add up to piercePower
+    public int speed = 1;
+
+    void Update()
+    {
+        transform.Translate(new Vector3(0, 0, 0.5f * speed));
+    }
 
     private void LateUpdate()
     {

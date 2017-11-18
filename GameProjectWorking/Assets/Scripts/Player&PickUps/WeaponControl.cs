@@ -32,8 +32,8 @@ public class WeaponControl : MonoBehaviour {
             if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             weaponNumber = (weaponNumber - 1)% howMany;
-            if (weaponNumber < 0)//not sure if this is the right logic
-                weaponNumber *= -1;
+            if (weaponNumber < 0)
+                weaponNumber = howMany - 1;
 
             //Debug.Log("weaponNum: " + weaponNumber);
         }

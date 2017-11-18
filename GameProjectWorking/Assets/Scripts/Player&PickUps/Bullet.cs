@@ -6,6 +6,12 @@ public class Bullet : MonoBehaviour {
 
     public int power=1;
     public int piercePower = 0;
+    public int speed = 1;
+
+    void Update()
+    {
+        transform.Translate(new Vector3(0, 0, 0.5f * speed));
+    }
 
     void OnTriggerEnter(Collider target)
     {

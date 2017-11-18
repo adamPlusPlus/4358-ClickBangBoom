@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
     private float angle;
     public float rotationSpeed = 10;
 
-    Animator anim;
+    public Animator anim;
     // Setting up the references.
 
     // Use this for initialization
@@ -124,15 +124,22 @@ public class PlayerControl : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
         
+        /*
         if (Input.GetMouseButton(1))
-       // if(Input.GetButton("Fire1"))
+        // if(Input.GetButton("Fire1"))
+        {
             anim.SetBool("aim", true);
+            GetComponentInChildren<Gun>().gunLine.enabled = true;
+            GetComponentInChildren<PiercingGun>().gunLine.enabled = false;
+        }
         if (Input.GetMouseButtonUp(1))
        // if (Input.GetButtonUp("Fire1"))
         {
             anim.SetBool("aim", false);
+            GetComponentInChildren<Gun>().gunLine.enabled = false;
+            GetComponentInChildren<PiercingGun>().gunLine.enabled = false;
         }
-        
+        */
     }
     //
     void FixedUpdate()

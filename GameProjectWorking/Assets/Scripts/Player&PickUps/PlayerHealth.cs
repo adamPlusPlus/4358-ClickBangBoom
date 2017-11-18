@@ -54,6 +54,14 @@ public class PlayerHealth : MonoBehaviour
         // Reset the damaged flag.
         damaged = false;
         healthSlider.value = currentHealth;
+
+        if(isDead)
+        {
+            playerMovement.enabled = false;
+            for (int i = 0; i < transform.childCount; ++i)
+            { transform.GetChild(i).gameObject.active = false; }
+        }
+    
     }
 
 
@@ -101,8 +109,7 @@ public class PlayerHealth : MonoBehaviour
         //playerAudio.Play();
 
         // Turn off the movement and shooting scripts.
-        playerMovement.enabled = false;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //playerMovement.enabled = false;
         //playerShooting.enabled = false;
     }
 }
