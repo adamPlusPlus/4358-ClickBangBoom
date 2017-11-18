@@ -372,11 +372,12 @@ MonoBehaviour:
   reloadTime: 0.5
   destroyTime: 5
   shotSpeed: 30
-  bullet: {fileID: 1668679239139086, guid: ba6739de19f18524f988bf000ff77b47, type: 2}
+  bullet: {fileID: 1877208251549518, guid: 160a0d116e29c3f49834135939e3d01f, type: 2}
   ammo: 30
   power: 1
   piercePower: 5
   ammoCount: {fileID: 1676116738}
+  gunLine: {fileID: 0}
 --- !u!1 &33704568
 GameObject:
   m_ObjectHideFlags: 0
@@ -1202,6 +1203,7 @@ MonoBehaviour:
   maxStamina: 10
   Camera2: {fileID: 1008495569}
   rotationSpeed: 10
+  anim: {fileID: 0}
 --- !u!65 &229093030
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6205,6 +6207,7 @@ MonoBehaviour:
   ammo: 45
   power: 1
   ammoCount: {fileID: 1676116738}
+  gunLine: {fileID: 0}
 --- !u!82 &1353544668
 AudioSource:
   m_ObjectHideFlags: 0

@@ -6343,17 +6343,17 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0.4}
+  - {x: 0, y: -0.5, z: 0}
+  - {x: 0, y: 0, z: 0.5}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.6881714
+        value: 0.51612854
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -6410,7 +6410,7 @@ MonoBehaviour:
   reloadTime: 0.5
   destroyTime: 5
   shotSpeed: 30
-  bullet: {fileID: 1668679239139086, guid: ba6739de19f18524f988bf000ff77b47, type: 2}
+  bullet: {fileID: 1877208251549518, guid: 160a0d116e29c3f49834135939e3d01f, type: 2}
   ammo: 30
   power: 2
   piercePower: 5
@@ -7128,7 +7128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1013143397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9365,11 +9365,11 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0.4}
+  - {x: 0, y: -0.65, z: 0}
+  - {x: 0, y: 0, z: 0.5}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 0.1
+    widthMultiplier: 0.08
     widthCurve:
       serializedVersion: 2
       m_Curve:

@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   power: 1
   piercePower: 0
-  speed: 1
+  speed: 2
 --- !u!114 &114897250040387364
 MonoBehaviour:
   m_ObjectHideFlags: 1
