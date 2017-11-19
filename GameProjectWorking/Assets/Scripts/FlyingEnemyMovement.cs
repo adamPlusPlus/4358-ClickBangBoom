@@ -4,6 +4,7 @@ using UnityEngine;
 public class FlyingEnemyMovement : MonoBehaviour {
 
     Transform target;
+    Transform recrute;
     int MoveSpeed = 15;
     int MinDist = 30;
     private Vector3 startPosition;
@@ -15,6 +16,7 @@ public class FlyingEnemyMovement : MonoBehaviour {
         startPosition = transform.position;
         //finding player
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        recrute = GameObject.FindGameObjectWithTag("Recrute").transform;
         anim = GetComponent<Animator>();
     }
 
@@ -25,7 +27,19 @@ public class FlyingEnemyMovement : MonoBehaviour {
             Vector3 targetPostition = new Vector3(target.position.x,
                                            target.position.y - 90,
                                            target.position.z);
-            transform.LookAt(targetPostition);
+            Vector3 recrutePosition = new Vector3(recrute.position.x,
+                                           recrute.position.y - 90,
+                                           recrute.position.z);
+            if (Random.Range(0.0f, 1.0f) <= 0.8f)//in 20% times enemy will target recrute
+            {
+                target = recrute;
+                targetPostition = recrutePosition;
+            }
+            if ((Vector3.Distance(transform.position, target.position) < MinDist))
+            {
+                transform.LookAt(targetPostition);
+            }
+           
 
             if (Vector3.Distance(transform.position, target.position) < MinDist)
             {
@@ -43,6 +57,7 @@ public class FlyingEnemyMovement : MonoBehaviour {
                 transform.position = Vector3.MoveTowards(transform.position, startPosition, (MoveSpeed + 2) * Time.deltaTime);
                 anim.SetBool("IsFlying", false);
             }
+
 
         }
       
