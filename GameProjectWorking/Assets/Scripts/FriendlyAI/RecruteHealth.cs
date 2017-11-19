@@ -8,7 +8,7 @@ public class RecruteHealth : MonoBehaviour {
     public Slider healthSlider;
     public Image damageImage;         
     public float flashSpeed = 5f;
-    public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+    public Color flashColour = new Color(0f, 1f, 0f, 0.1f);
 
     private float invincibleTime = 1.0f;
     private float nextDamage;

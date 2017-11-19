@@ -10,6 +10,7 @@ public class DialogeToRecrute : MonoBehaviour {
     public string Text = "To recrute press E";
     public Rect BoxSize = new Rect(0, 0, 200, 100);
     GameObject recrute;
+    GameObject recruteHealthUI;
     // Use this for initialization
     // if this script is on an object with a collider display the Gui
     void OnTriggerEnter(Collider other)
@@ -60,6 +61,9 @@ public class DialogeToRecrute : MonoBehaviour {
             availableRecrutes = availableRecrutes - 1;
             recrute = GameObject.FindGameObjectWithTag("Recrute");
             recrute.GetComponent<FriendlyAIMovement>().recruted = true;
+            GameObject gameOverParent = GameObject.Find("canvas_HUD");
+            GameObject gameOver = gameOverParent.transform.Find("RecruteHealthUI").gameObject;
+            gameOver.SetActive(true);
             //recrute.gameObject.tag = "Player";
             GuiOn = false;
 
