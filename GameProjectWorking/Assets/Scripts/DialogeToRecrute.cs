@@ -55,7 +55,7 @@ public class DialogeToRecrute : MonoBehaviour {
     }
     void Update()
     {
-        if (Input.GetKey(KeyCode.E)&& (availableRecrutes>0))
+        if (Input.GetKey(KeyCode.E)&& (availableRecrutes>0) && (GuiOn == true))
         {
             //yourText = GetComponent<GUIText>();
             availableRecrutes = availableRecrutes - 1;
