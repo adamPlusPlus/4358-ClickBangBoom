@@ -60,7 +60,9 @@ public class DialogeToRecrute : MonoBehaviour {
             availableRecrutes = availableRecrutes - 1;
             recrute = GameObject.FindGameObjectWithTag("Recrute");
             recrute.GetComponent<FriendlyAIMovement>().recruted = true;
+            //recrute.gameObject.tag = "Player";
             GuiOn = false;
+
 
         }
     }

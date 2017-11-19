@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95665053800274796}
   - component: {fileID: 114443000618645780}
   - component: {fileID: 65061370884164680}
+  - component: {fileID: 114408041257141366}
   m_Layer: 0
   m_Name: Recrute
   m_TagString: Recrute
@@ -85,7 +86,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
@@ -99,8 +100,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.0445197, y: 0.5, z: 1.4664146}
-  m_Center: {x: -0.018398875, y: 0.22, z: -0.23320696}
+  m_Size: {x: 2.0445197, y: 1.85, z: 1.62}
+  m_Center: {x: 0.11, y: 0.22, z: -0.23320696}
 --- !u!95 &95665053800274796
 Animator:
   serializedVersion: 3
@@ -118,6 +119,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114408041257141366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1258733512968522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43780bb164521cc4dbe2dee4f33144fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  healthSlider: {fileID: 0}
+  damageImage: {fileID: 0}
+  flashSpeed: 5
+  flashColour: {r: 0.82991886, g: 1, b: 0.051470578, a: 0.1}
 --- !u!114 &114443000618645780
 MonoBehaviour:
   m_ObjectHideFlags: 1
