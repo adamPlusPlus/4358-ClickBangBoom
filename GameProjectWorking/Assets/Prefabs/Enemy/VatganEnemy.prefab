@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 54680864735912584}
   m_Layer: 0
   m_Name: sight
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,15 +100,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105245753569722}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.64, y: 0.1, z: 402.14}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalPosition: {x: 118.46, y: 1.44, z: -66.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4403009578573592}
   - {fileID: 4312380066160660}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!54 &54019344415414464
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105245753569722}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f1ee54b4e1fe9674d968aab6a9ba27ab, type: 3}
   m_Name: 
@@ -211,10 +211,10 @@ MonoBehaviour:
   passive: 0
   idleTime: 5
   patrolTime: 10
-  shot: {fileID: 1739931370473804, guid: 520f833bf7d481043bc77ea92dc5d695, type: 2}
+  shot: {fileID: 1516565600702312, guid: 493de5a27617d8048901ed6208346a3e, type: 2}
   waypoints: []
   num: 0
-  minDist: 0
+  minDist: 1
   rand: 0
 --- !u!114 &114949181593661822
 MonoBehaviour:
@@ -227,7 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af7a5b15cc46e74e9e38c379f5e508b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 10
+  defense: 0
   scoreValue: 10
 --- !u!135 &135559912539951160
 SphereCollider:

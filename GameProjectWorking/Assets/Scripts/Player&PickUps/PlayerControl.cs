@@ -14,9 +14,9 @@ public class PlayerControl : MonoBehaviour
     //Test
     public Transform Camera2;
     
-    //public Slider staminaBar; USING RECTANGLE INSTEAD
-    Rect staminaBar;
-    Texture2D staminaTexture;
+    public Slider staminaBar; 
+    //Rect staminaBar;
+    //Texture2D staminaTexture;
 
     private Rigidbody playerBody;
     private float horizontalMovement, verticalMovement;
@@ -28,7 +28,7 @@ public class PlayerControl : MonoBehaviour
     private float angle;
     public float rotationSpeed = 10;
 
-    Animator anim;
+    public Animator anim;
     // Setting up the references.
 
     // Use this for initialization
@@ -40,10 +40,10 @@ public class PlayerControl : MonoBehaviour
         target = gameObject.GetComponent<Transform>();
         anim = GetComponent<Animator>();
         //set stamina bar
-        staminaBar = new Rect(Screen.width / 26, Screen.height * 9.5f/10, Screen.width / 10, Screen.height / 80); //(x,y,width of bar, height of bar)
-        staminaTexture = new Texture2D(1, 1);
-        staminaTexture.SetPixel(0, 0, Color.green);
-        staminaTexture.Apply();
+        //staminaBar = new Rect(Screen.width / 26, Screen.height * 9.5f/10, Screen.width / 10, Screen.height / 80); //(x,y,width of bar, height of bar)
+        //staminaTexture = new Texture2D(1, 1);
+        //staminaTexture.SetPixel(0, 0, Color.green);
+        //staminaTexture.Apply();
     }
 
     // Update is called once per frame
@@ -71,6 +71,8 @@ public class PlayerControl : MonoBehaviour
             if (currentStamina < maxStamina)
                 currentStamina += Time.deltaTime;
         }
+
+        staminaBar.value = currentStamina;
 
         //Rotation from key input (8 directional movement)
         if (horizontalMovement > 0.1 && Mathf.Abs(verticalMovement) < 0.6)//right
@@ -123,14 +125,21 @@ public class PlayerControl : MonoBehaviour
             angle = Mathf.Atan2(mousePos.x, mousePos.y) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
         }
+        
         /*
-        //if (Input.GetMouseButton(1))
-        if(Input.GetButton("Fire1"))
+        if (Input.GetMouseButton(1))
+        // if(Input.GetButton("Fire1"))
+        {
             anim.SetBool("aim", true);
-        //if (Input.GetMouseButtonUp(1))
-        if (Input.GetButtonUp("Fire1"))
+            GetComponentInChildren<Gun>().gunLine.enabled = true;
+            GetComponentInChildren<PiercingGun>().gunLine.enabled = false;
+        }
+        if (Input.GetMouseButtonUp(1))
+       // if (Input.GetButtonUp("Fire1"))
         {
             anim.SetBool("aim", false);
+            GetComponentInChildren<Gun>().gunLine.enabled = false;
+            GetComponentInChildren<PiercingGun>().gunLine.enabled = false;
         }
         */
     }
@@ -138,26 +147,27 @@ public class PlayerControl : MonoBehaviour
     void FixedUpdate()
     {
         //move using physics
-        Vector3 move = new Vector3(horizontalMovement, 0f, verticalMovement);
-        playerBody.velocity = move * speed;
+        Vector3 move = new Vector3(horizontalMovement, 0f, verticalMovement) * speed ;
+        move.y = playerBody.velocity.y;
+        playerBody.velocity = move; 
     }
 
     private void LateUpdate()
     {
         //Melee Attack:
-        //if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
+       // if(Input.GetMouseButtonDown(1))
         {
             transform.rotation = Quaternion.Euler(new Vector3(90, angle, 0));
             anim.SetTrigger("melee");
         }
     }
 
-    private void OnGUI()
+    /*private void OnGUI()   SWITCHING TO SLIDER
     {
         float ratio = currentStamina / maxStamina;
         float barWidth = ratio * Screen.width / 10;
         staminaBar.width = barWidth;
         GUI.DrawTexture(staminaBar, staminaTexture);
-    }
+    }*/
 }

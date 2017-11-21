@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public Image damageImage;                                   // Reference to an image to flash on the screen on being hurt.
     public AudioClip deathClip;                                 // The audio clip to play when the player dies.
     public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
-    public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
+    public Color flashColour = new Color(1f, 0f, 0f, 1f);     // The colour the damageImage is set to, to flash.
     //invincible between attacks
     private float invincibleTime=1.0f;
     private float nextDamage;
@@ -54,6 +54,16 @@ public class PlayerHealth : MonoBehaviour
         // Reset the damaged flag.
         damaged = false;
         healthSlider.value = currentHealth;
+
+        if(isDead)
+        {
+            playerMovement.enabled = false;
+            for (int i = 0; i < transform.childCount; ++i)
+            { transform.GetChild(i).gameObject.active = false; }
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
+       
+    
     }
 
 
@@ -101,8 +111,7 @@ public class PlayerHealth : MonoBehaviour
         //playerAudio.Play();
 
         // Turn off the movement and shooting scripts.
-        playerMovement.enabled = false;
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        //playerMovement.enabled = false;
         //playerShooting.enabled = false;
     }
 }

@@ -13,13 +13,13 @@ public class melee : MonoBehaviour {
 
     public void Update()
     {
-        //if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0) && !Input.GetMouseButton(1))
+       // if(Input.GetMouseButtonDown(1))
         {
             gameObject.GetComponent<Collider>().enabled = true;
         }
-       // if(Input.GetMouseButtonUp(0))
-       if(Input.GetMouseButtonUp(1))
+        if(Input.GetMouseButtonUp(0))
+       //if(Input.GetMouseButtonUp(1))
         {
             gameObject.GetComponent<Collider>().enabled = false;
         }

@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Dagger
   - Recrute
+  - Fire
   layers:
   - Default
   - TransparentFX
