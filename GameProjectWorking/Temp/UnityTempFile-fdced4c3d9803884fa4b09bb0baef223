@@ -183,6 +183,7 @@ Assets/Scripts/batBullet.cs
 "Assets/Scripts/Camera&UI/MiniMap.cs"
 "Assets/Scripts/Camera&UI/PauseMenu.cs"
 Assets/Scripts/DialogeToRecrute.cs
+Assets/Scripts/Dialogue/DialogueManager.cs
 Assets/Scripts/DistanceShooterEnemy.cs
 Assets/Scripts/EnemyAttack.cs
 Assets/Scripts/EnemyManager.cs

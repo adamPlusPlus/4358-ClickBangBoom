@@ -166,6 +166,8 @@
     <Compile Include="Assets\Scripts\Camera&amp;UI\MiniMap.cs" />
     <Compile Include="Assets\Scripts\Camera&amp;UI\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\DialogeToRecrute.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />

@@ -5,19 +5,21 @@ using UnityEngine;
 public class DialogeToRecrute : MonoBehaviour {
     public int availableRecrutes = 1;
     public bool GuiOn;
-    public GUISkin dialogeForRecruting;
-    public GUIText yourText;
     public string Text = "To recrute press E";
     public Rect BoxSize = new Rect(0, 0, 200, 100);
+    public Dialogue dialogue;
+
     GameObject recrute;
     GameObject recruteHealthUI;
     // Use this for initialization
     // if this script is on an object with a collider display the Gui
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if ((other.tag == "Player")&& (availableRecrutes > 0))
         {
             GuiOn = true;
+            TriggerDialogue();
         }
     }
 
@@ -26,36 +28,24 @@ public class DialogeToRecrute : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            FindObjectOfType<DialogueManager>().EndDialogue();
             GuiOn = false;
+
         }
     }
 
-    void OnGUI()
+    //locating dialogue manager
+    public void TriggerDialogue()
     {
-
-        if (dialogeForRecruting != null)
-        {
-            GUI.skin = dialogeForRecruting;
-        }
-
-        if ((GuiOn == true) && (availableRecrutes>0))
-        {
-            // Make a group on the center of the screen
-            GUI.BeginGroup(new Rect((Screen.width - BoxSize.width) / 2, (Screen.height - BoxSize.height) / 2, BoxSize.width, BoxSize.height));
-            // All rectangles are now adjusted to the group. (0,0) is the topleft corner of the group.
-
-            GUI.Label(BoxSize, Text);
-
-            // End the group we started above. This is very important to remember!
-            GUI.EndGroup();
-
-        }
-
+        
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
     }
-    void Update()
+
+   
+    public void HireRecrutie()
     {
-        if (Input.GetKey(KeyCode.E)&& (availableRecrutes>0) && (GuiOn == true))
+        if ((availableRecrutes>0) && (GuiOn == true))
         {
             //yourText = GetComponent<GUIText>();
             availableRecrutes = availableRecrutes - 1;
@@ -65,6 +55,7 @@ public class DialogeToRecrute : MonoBehaviour {
             GameObject gameOver = gameOverParent.transform.Find("RecruteHealthUI").gameObject;
             gameOver.SetActive(true);
             //recrute.gameObject.tag = "Player";
+            FindObjectOfType<DialogueManager>().EndDialogue();
             GuiOn = false;
 
 
