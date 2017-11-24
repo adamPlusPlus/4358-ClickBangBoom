@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recruted: 0
+  timeBetweenHeals: 0.2
 --- !u!195 &195876044020739838
 NavMeshAgent:
   m_ObjectHideFlags: 1

@@ -5,8 +5,6 @@ using UnityEngine;
 public class DialogeToRecrute : MonoBehaviour {
     public int availableRecrutes = 1;
     public bool GuiOn;
-    public string Text = "To recrute press E";
-    public Rect BoxSize = new Rect(0, 0, 200, 100);
     public Dialogue dialogue;
 
     GameObject recrute;

@@ -17,7 +17,6 @@ public class DialogueManager : MonoBehaviour {
     {
         //Debug.Log("Starting conversation with "+dialogue.playerName);
         animator.SetBool("IsOpen", true);
-        
         sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {

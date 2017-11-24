@@ -168,6 +168,7 @@
     <Compile Include="Assets\Scripts\DialogeToRecrute.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\Tutorial.cs" />
     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -204,6 +205,7 @@
     <Compile Include="Assets\Scripts\SceneTransition\triggerEvent.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\SpawnTrigger.cs" />
+    <Compile Include="Assets\TutorialManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\Shadow.shader" />

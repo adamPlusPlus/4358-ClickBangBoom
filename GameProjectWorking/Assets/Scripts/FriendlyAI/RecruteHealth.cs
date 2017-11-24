@@ -88,8 +88,11 @@ public class RecruteHealth : MonoBehaviour {
     {
         // Set the death flag so this function won't be called again.
         isDead = true;
-
-       // anim.SetTrigger("Die");
+        Destroy(gameObject);
+        GameObject gameOverParent = GameObject.Find("canvas_HUD");
+        GameObject gameOver = gameOverParent.transform.Find("RecruteHealthUI").gameObject;
+        gameOver.SetActive(false);
+        // anim.SetTrigger("Die");
 
     }
 }
