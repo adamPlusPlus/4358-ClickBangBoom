@@ -54,16 +54,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableRecrutes: 1
   GuiOn: 0
-  dialogeForRecruting: {fileID: 11400000, guid: 4d01192d7eb01a4468d09ab23d2ce2f8,
-    type: 2}
-  yourText: {fileID: 0}
-  Text: To recrute press E
-  BoxSize:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 200
-    height: 100
+  dialogue:
+    playerName: Maksim
+    sentences:
+    - You hired medic!!! Now you can go.
 --- !u!135 &135231810811205350
 SphereCollider:
   m_ObjectHideFlags: 1

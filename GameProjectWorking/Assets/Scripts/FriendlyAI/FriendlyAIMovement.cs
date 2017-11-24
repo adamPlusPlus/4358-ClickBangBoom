@@ -7,7 +7,9 @@ public class FriendlyAIMovement : MonoBehaviour {
     private UnityEngine.AI.NavMeshAgent nav; //Reference to the nav mesh agent
     PlayerHealth playerHealth;
     private float initialSpeed  = 12;
-    public bool recruted = false; 
+    public bool recruted = false;
+    float timer;
+    public float timeBetweenHeals= 1f;
 
     void Awake()
     {
@@ -37,6 +39,19 @@ public class FriendlyAIMovement : MonoBehaviour {
             nav.SetDestination(player.position);
         }
          
+        if ((playerHealth.currentHealth <= 90)&& (recruted == true))
+        {
+            timer += Time.deltaTime;
+
+            // If the timer exceeds the time between attacks, the player is in range and this enemy is alive...
+            if (timer >= timeBetweenHeals) //&& enemyHealth.currentHealth > 0)
+            {
+                // ... heal.
+                playerHealth.currentHealth = playerHealth.currentHealth + 1;
+                timer = 0f;
+            }
+            
+        }
 
     }
 }
