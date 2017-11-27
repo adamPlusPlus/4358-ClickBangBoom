@@ -32,8 +32,12 @@ public class npcFlee : INPCState
     public void Retreat()
     {
         if (NPC.target != null)
-            NPC.transform.rotation = Quaternion.LookRotation(NPC.transform.position - NPC.player.GetComponent<Transform>().position);
-        NPC.transform.Translate(Vector3.forward * 12.0f * Time.deltaTime);
+        {
+            Vector3 dir = NPC.transform.position - NPC.player.GetComponent<Transform>().position;
+            dir.y = 0;
+            NPC.transform.rotation = Quaternion.LookRotation(dir);
+        }
+        NPC.transform.Translate(Vector3.forward * 10.0f * Time.deltaTime);
 
         retreatTimer += Time.deltaTime;
 

@@ -6,6 +6,7 @@ public class npcIdle : INPCState
 {
     private npc NPC;
     private float idleTimer;
+    private int hit = 0;
 
     public void Enter(npc npc)
     {
@@ -17,6 +18,10 @@ public class npcIdle : INPCState
     {
         Idle();
 
+        if (NPC.target.gameObject.tag == "Player")
+        {
+            NPC.ChangeState(new npcInteract());
+        }
         //if(playerSpeak) change to dialoguestate or something...
     }
 
@@ -29,7 +34,9 @@ public class npcIdle : INPCState
     {
         if (other.gameObject.tag == "Bullet" || other.gameObject.tag == "Dagger")
         {
-            //go to flee state
+            hit++;
+            if (hit % 2 == 0&&hit!=0)
+                NPC.ChangeState(new npcFlee());
         }
     }
 

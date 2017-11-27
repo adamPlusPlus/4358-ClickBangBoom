@@ -175,6 +175,7 @@
     <Compile Include="Assets\Scripts\Dialogue\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Dialogue\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\Dialogue\Tutorial.cs" />
+    <Compile Include="Assets\Scripts\Dialogue\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Assets\Scripts\NPCstateMachine\npc.cs" />
     <Compile Include="Assets\Scripts\NPCstateMachine\npcFlee.cs" />
     <Compile Include="Assets\Scripts\NPCstateMachine\npcIdle.cs" />
+    <Compile Include="Assets\Scripts\NPCstateMachine\npcInteract.cs" />
     <Compile Include="Assets\Scripts\NPCstateMachine\npcPatrol.cs" />
     <Compile Include="Assets\Scripts\NPCstateMachine\npcSight.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\AmmoPickUp.cs" />
@@ -217,7 +219,6 @@
     <Compile Include="Assets\Scripts\SceneTransition\triggerEvent.cs" />
     <Compile Include="Assets\Scripts\ScoreManager.cs" />
     <Compile Include="Assets\Scripts\SpawnTrigger.cs" />
-    <Compile Include="Assets\TutorialManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Materials\Shadow.shader" />

@@ -80,4 +80,9 @@ public class npc : MonoBehaviour {
 
         currentState.Enter(this);
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        currentState.OnTriggerEnter(other);
+    }
 }

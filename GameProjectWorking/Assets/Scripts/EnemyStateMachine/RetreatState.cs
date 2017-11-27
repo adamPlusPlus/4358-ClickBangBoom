@@ -38,7 +38,11 @@ public class RetreatState : IEnemyState {
     public void Retreat()
     {
         if(enemy.target!=null)
-        enemy.transform.rotation = Quaternion.LookRotation(enemy.transform.position - enemy.player.GetComponent<Transform>().position);
+        {
+            Vector3 dir = enemy.transform.position - enemy.player.GetComponent<Transform>().position;
+            dir.y = 0;
+            enemy.transform.rotation = Quaternion.LookRotation(dir);
+        }
         enemy.transform.Translate(Vector3.forward * 12.0f * Time.deltaTime);
 
         retreatTimer += Time.deltaTime;

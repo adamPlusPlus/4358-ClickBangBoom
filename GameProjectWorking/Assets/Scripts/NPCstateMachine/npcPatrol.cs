@@ -6,6 +6,7 @@ public class npcPatrol : INPCState {
 
     private npc NPC;
     private float patrolTimer;
+    private int hit = 0;
 
     public void Enter(npc npc)
     {
@@ -17,6 +18,10 @@ public class npcPatrol : INPCState {
         Patrol();
         NPC.Move();
 
+        if(NPC.target.gameObject.tag=="Player")
+        {
+            NPC.ChangeState(new npcIdle());
+        }
         //if(playerSpeak) change to interactState 
     }
 
@@ -29,7 +34,9 @@ public class npcPatrol : INPCState {
     {
         if (other.gameObject.tag == "Bullet" || other.gameObject.tag == "Dagger")
         {
-            //flee
+            hit++;
+            if (hit % 2 == 0&&hit!=0)
+                NPC.ChangeState(new npcFlee());
         }
     }
 
