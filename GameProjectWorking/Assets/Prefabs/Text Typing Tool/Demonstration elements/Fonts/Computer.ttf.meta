@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 90524ab2109bbf041b080c1b44b7b43d
+timeCreated: 1510800863
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DPix_8pt
+  fontNames:
+  - DPix_8pt
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

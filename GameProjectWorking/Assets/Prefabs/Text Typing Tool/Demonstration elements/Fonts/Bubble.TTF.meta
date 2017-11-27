@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 0f038bd4c1c879e44a68a32abe09eff6
+timeCreated: 1510800863
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Skidoos Cyr
+  fontNames:
+  - Skidoos Cyr
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
