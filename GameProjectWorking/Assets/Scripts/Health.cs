@@ -10,6 +10,12 @@ public class Health : MonoBehaviour {
     public int defense;//how much it takes away from bullet's pierce
     public int scoreValue = 10;
     private Animator anim;
+    //item drop
+    public bool drop = false;
+    public float dropRate = 0;//between 0 and 1
+    public int size = 0;//size of the drops array
+    public GameObject[] drops;
+    private bool alreadyDrop=false;
 
     // Use this for initialization
     void Start()
@@ -37,7 +43,15 @@ public class Health : MonoBehaviour {
             GetComponent<Collider>().enabled = false;
             anim.SetTrigger("die");
             Destroy(gameObject, 5.0f);
-            
+
+            if(drop&&Random.value<dropRate&&!alreadyDrop)
+            {
+                int i = (int) Mathf.Floor(Random.value * size);
+                Vector3 pos = transform.position;
+                pos.y = 0.2f;
+                Instantiate(drops[i], pos, Quaternion.Euler(90,0,0) );
+            }
+            alreadyDrop = true;
         }
     }
 }
