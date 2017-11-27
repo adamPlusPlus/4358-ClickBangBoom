@@ -6,7 +6,7 @@ public class MusicTrigger: MonoBehaviour {
   public AudioClip musicClip;
 
   public void OnTriggerEnter(Collider other) {
-    if(other.CompareTag("Player")) {
+    if(other.CompareTag("Player") && musicController.currentMusic != musicClip) {
       musicController.PlayMusic(musicClip, 1.0f, true, true);
     }
   }
