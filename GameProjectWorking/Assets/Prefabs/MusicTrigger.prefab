@@ -64,5 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748b9985c8811d14ea13bd20244488b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicController: {fileID: 0}
+  musicController: {fileID: 114593467806419074, guid: 1c0d35db3bf89ca498e7a7b5db6f844f,
+    type: 2}
   musicClip: {fileID: 8300000, guid: 835e9cc6e4a7a5841b45931c0e5c80ba, type: 3}
