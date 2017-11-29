@@ -12,12 +12,14 @@ public class DistanceShooterEnemy : MonoBehaviour {
     private int fireDistance = 15;
     private int fleeDistance = 5;
     private int speed = 9;
+    private UnityEngine.AI.NavMeshAgent nav; //Reference to the nav mesh agent
     Animator ani;
 
 	// Use this for initialization
 	void Start () {
         ani = GetComponentInChildren<Animator>();
         player = GameObject.FindGameObjectWithTag("Player");
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 	
 	// Update is called once per frame
@@ -41,6 +43,7 @@ public class DistanceShooterEnemy : MonoBehaviour {
             Vector3 moveDirection =transform.position - player.GetComponent<Transform>().position ;
             moveDirection.y = 0;
             GetComponent<CharacterController>().Move(moveDirection.normalized * speed * Time.deltaTime);
+            //nav.SetDestination(moveDirection);
             ani.SetBool("move", true);
         }
         else

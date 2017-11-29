@@ -16,6 +16,8 @@ public class enemy : character {
     public float idleTime=5;
     public float patrolTime = 10;
 
+
+    private UnityEngine.AI.NavMeshAgent nav; //Reference to the nav mesh agent
     public GameObject shot;//enemy ranged attack prefab
 
     //patrol path using waypoints:
@@ -25,13 +27,20 @@ public class enemy : character {
     public float minDist;
 
     public bool rand = false;
-    
-    
-	public override void Start ()
+
+    void Awake()
+    {
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+
+
+
+    public override void Start ()
     {
         base.Start();
         ChangeState(new IdleState());
-	}
+      
+    }
 	
 	void Update ()
     {
@@ -78,8 +87,9 @@ public class enemy : character {
             else
             {
                 Vector3 moveDirection = Vector3.forward;
-                moveDirection.y = 0;
-                transform.Translate(moveDirection * speed * Time.deltaTime);
+                //moveDirection.y = 0;
+                //transform.Translate(moveDirection * speed * Time.deltaTime);
+                nav.SetDestination(moveDirection);
             }
         }
         float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
@@ -93,8 +103,9 @@ public class enemy : character {
                 gameObject.transform.LookAt(targetLocation);
 
                 Vector3 moveDirection = Vector3.forward;
-                moveDirection.y = 0;
-                transform.Translate(moveDirection * speed * Time.deltaTime);
+                //moveDirection.y = 0;
+                //transform.Translate(moveDirection * speed * Time.deltaTime);
+                nav.SetDestination(moveDirection);
                 // gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
             }
             else
@@ -119,8 +130,9 @@ public class enemy : character {
         else
         {
             Vector3 moveDirection = Vector3.forward;
-            moveDirection.y = 0;
-            transform.Translate(moveDirection * speed * Time.deltaTime);
+            //moveDirection.y = 0;
+            nav.SetDestination(target.transform.position);
+            //transform.Translate(moveDirection * speed * Time.deltaTime);
         }
     }
 

@@ -230,6 +230,10 @@ MonoBehaviour:
   health: 10
   defense: 0
   scoreValue: 10
+  drop: 0
+  dropRate: 0
+  size: 0
+  drops: []
 --- !u!135 &135559912539951160
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -265,7 +269,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105245753569722}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
