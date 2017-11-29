@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 class DoorTrigger: MonoBehaviour {
-  public GameObject doorObject;
+  public Door doorObject;
   private int state;             
   public float openOffset;
   public float openTime;
@@ -44,8 +44,16 @@ class DoorTrigger: MonoBehaviour {
   }
 
   public void OnTriggerEnter(Collider other) {
-    if(other.CompareTag("Player"))
-      state = OPENING;
+    if(other.CompareTag("Player")) {
+      if(doorObject.locked) {
+        if(other.GetComponent<PlayerInventory>().keys.Contains(doorObject.lockId)) {
+          other.GetComponent<PlayerInventory>().keys.Remove(doorObject.lockId);
+          doorObject.locked = false;
+        }
+      }
+      if(!doorObject.locked)
+        state = OPENING;
+    }
   }
 
   public void OnTriggerExit(Collider other) {
