@@ -9,7 +9,8 @@ public class BombGun: Gun {
   public float blastRadius;
 
   public override void shoot(Vector3 start, Vector3 target) {
-    if(!activeBomb && ammo > 0) {
+    if(!activeBomb) {
+      if(ammo > 0) {
         Vector3 direction = (target - start).normalized;
         activeBomb = Instantiate(bullet, transform.position, transform.rotation);
         Camera.main.GetComponent<CameraShake>().enabled = true;
@@ -20,6 +21,7 @@ public class BombGun: Gun {
         explosion.attacker = attacker;
         activeBomb.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
         ammo--;
+      }
     }
     else {
       activeBomb.GetComponent<Bomb>().Explode();

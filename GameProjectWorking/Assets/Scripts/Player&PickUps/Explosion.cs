@@ -18,13 +18,13 @@ public class Explosion: MonoBehaviour {
     float distance = (position - transform.position).magnitude;
     float decayFactor = Mathf.Pow(1 - distance / blastRadius, 2);
     float fDamage = basePower * decayFactor;
-    if(fDamage < 0.5f) return 0;
+    if(fDamage < 0.1f) return 0;
     else return Mathf.CeilToInt(fDamage);
   }
 
   public void Awake() {
     alpha = 1.0f;
-    transform.localScale = Vector3.one * blastRadius * 0.75f;
+    transform.localScale = Vector3.one * blastRadius;
     Destroy(gameObject, blastDuration);
   }
 
