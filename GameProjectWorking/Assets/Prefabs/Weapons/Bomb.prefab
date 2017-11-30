@@ -185,7 +185,7 @@ MonoBehaviour:
   blastDuration: 0.1
   basePower: 10
   attacker: {fileID: 0}
-  hurtAttacker: 0
+  hurtAttacker: 1
   hurtEnemies: 1
   hurtPlayer: 1
   hurtRecrutes: 0

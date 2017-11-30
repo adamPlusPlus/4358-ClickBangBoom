@@ -16,10 +16,11 @@ public class Explosion: MonoBehaviour {
 
   public int GetBlastPowerAtPoint(Vector3 position) {
     float distance = (position - transform.position).magnitude;
-    float decayFactor = Mathf.Pow(1 - distance / blastRadius, 2);
+    if(distance > blastRadius) distance = blastRadius;
+    //float decayFactor = Mathf.Pow(1 - distance / blastRadius, 2);
+    float decayFactor = blastRadius / (distance * (basePower-1) + blastRadius);
     float fDamage = basePower * decayFactor;
-    if(fDamage < 0.1f) return 0;
-    else return Mathf.CeilToInt(fDamage);
+    return Mathf.RoundToInt(fDamage);
   }
 
   public void Awake() {

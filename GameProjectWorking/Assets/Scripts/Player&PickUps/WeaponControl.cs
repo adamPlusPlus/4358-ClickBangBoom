@@ -5,24 +5,24 @@ using UnityEngine;
 public class WeaponControl : MonoBehaviour {
 
     public GameObject[] weapons;
-   //private GameObject currentWeapon;
+    public GameObject currentWeapon;
     public int howMany;
     private int weaponNumber = 0;//start with weapons[0]
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 
-        //currentWeapon = weapons[0];
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    //currentWeapon = weapons[0];
+    }
+        
+        // Update is called once per frame
+    void Update ()
     {
         //Get Input From The Mouse Wheel
         // if mouse wheel gives a positive value add 1 to WeaponNumber
         // if it gives a negative value decrease WeaponNumber with 1
        
-            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             weaponNumber = (weaponNumber + 1)% howMany ;
 
@@ -50,6 +50,7 @@ public class WeaponControl : MonoBehaviour {
         }
 
         weapons[weaponNumber].SetActive(true);
+        //currentWeapon = weapons[weaponNumber];
     }
    
 }

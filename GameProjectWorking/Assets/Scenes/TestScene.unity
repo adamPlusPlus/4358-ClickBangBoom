@@ -11933,6 +11933,16 @@ Prefab:
       propertyPath: ammoCount
       value: 
       objectReference: {fileID: 1676116738}
+    - target: {fileID: 82814397229132602, guid: e104f34f874c22045b67af715dc4cf93,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114930914782495902, guid: e104f34f874c22045b67af715dc4cf93,
+        type: 2}
+      propertyPath: blastRadius
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e104f34f874c22045b67af715dc4cf93, type: 2}
   m_IsPrefabParent: 0
