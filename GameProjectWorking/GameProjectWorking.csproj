@@ -225,6 +225,7 @@
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\WeaponControl.cs" />
+    <Compile Include="Assets\Scripts\Rat.cs" />
     <Compile Include="Assets\Scripts\SceneTransition\moveScene.cs" />
     <Compile Include="Assets\Scripts\SceneTransition\teleport.cs" />
     <Compile Include="Assets\Scripts\SceneTransition\triggerEvent.cs" />
