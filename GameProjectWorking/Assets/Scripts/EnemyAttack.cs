@@ -14,8 +14,8 @@ public class EnemyAttack : MonoBehaviour
     PlayerHealth playerHealth;
     RecruteHealth recruteHealth;
     //EnemyHealth enemyHealth;                    // Reference to this enemy's health.
-    bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
-    bool recruteInRange;
+    public bool playerInRange;                         // Whether player is within the trigger collider and can be attacked.
+   public  bool recruteInRange;
     float timer;                                // Timer for counting up to the next attack.
 
 
