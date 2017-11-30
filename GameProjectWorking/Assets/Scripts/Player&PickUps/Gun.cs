@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
 {
     // GUN
     public float reloadTime;
-    private float nextFire;
+    protected float nextFire;
     public float destroyTime;//amount of time before bullet is destroyed (simulates weapon range)
     public float shotSpeed = 30f;
     public GameObject bullet;
@@ -17,24 +17,35 @@ public class Gun : MonoBehaviour
     public int power = 1;
     public Text ammoCount;
 
-    Animator anim;
+    protected Animator anim;
+    public string weaponName;
 
-    private Light gunLight;
-    private AudioSource gunFire;
+    protected Light gunLight;
+    protected AudioSource gunFire;
     public LineRenderer gunLine;
+
     // Use this for initialization
-    void Start()
+    public virtual void Start()
     {
         anim = GetComponentInParent<Animator>();
         gunLight = GetComponent<Light>();
         gunLine = GetComponent<LineRenderer>();
         gunFire = GetComponent<AudioSource>();
-        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo+"\nBasic Gun";
 
         gunLine.enabled = false;
+        UpdateAmmoText();
     }
 
-    void shoot(Vector3 start, Vector3 target)
+    public void UpdateAmmoText() {
+        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo+"\n"+weaponName;
+    }
+
+    public virtual void ConfigureShot(GameObject shot) {
+      shot.GetComponent<Bullet>().power = power;
+    }
+
+
+    public virtual void shoot(Vector3 start, Vector3 target)
     {
         //fires bullet
         if (ammo > 0) {
@@ -44,18 +55,17 @@ public class Gun : MonoBehaviour
             Camera.main.GetComponent<CameraShake>().enabled = true;
             anim.SetTrigger("fire");
             gunFire.Play();
-            shot.GetComponent<Bullet>().power = power;
-           // shot.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
+            ConfigureShot(shot);
+            // shot.GetComponent<Rigidbody>().velocity = direction * shotSpeed;
             ammo--;
             Destroy(shot, destroyTime);//bullet flies for destroyedTime seconds, then it goes "out of range"
         }
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
-        ammoCount.GetComponent<Text>().text = "Ammo: " + ammo+"\nBasic Gun";
-
+        UpdateAmmoText();
         if(Input.GetMouseButton(1)) {
 
             GetComponentInParent<PlayerControl>().anim.SetBool("aim", true);

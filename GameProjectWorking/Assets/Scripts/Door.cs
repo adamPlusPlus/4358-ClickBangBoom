@@ -5,8 +5,8 @@ using UnityEngine;
 public class Door: MonoBehaviour {
   public bool locked;
   public int lockId;
-  public PlayerInventory inventory;
 
+  /*
   public void OnCollisionEnter(Collision collision) {
     if(locked && collision.collider.CompareTag("Player")) {
       if(inventory.keys.Contains(lockId)) {
@@ -14,5 +14,5 @@ public class Door: MonoBehaviour {
         locked = false;
       }
     }
-  }
+  }*/
 }
