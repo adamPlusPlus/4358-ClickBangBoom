@@ -41,7 +41,7 @@ public class DialogeToRecrute : MonoBehaviour {
     }
 
    
-    public void HireRecrutie()
+    public void HireRecrutieMedic()
     {
         if ((availableRecrutes>0) && (GuiOn == true))
         {
@@ -49,6 +49,27 @@ public class DialogeToRecrute : MonoBehaviour {
             availableRecrutes = availableRecrutes - 1;
             recrute = GameObject.FindGameObjectWithTag("Recrute");
             recrute.GetComponent<FriendlyAIMovement>().recruted = true;
+            recrute.GetComponent<FriendlyAIMovement>().medic = true;
+            GameObject gameOverParent = GameObject.Find("canvas_HUD");
+            GameObject gameOver = gameOverParent.transform.Find("RecruteHealthUI").gameObject;
+            gameOver.SetActive(true);
+            //recrute.gameObject.tag = "Player";
+            FindObjectOfType<DialogueManager>().EndDialogue();
+            GuiOn = false;
+
+
+        }
+    }
+
+    public void HireRecrutieKiller()
+    {
+        if ((availableRecrutes > 0) && (GuiOn == true))
+        {
+            //yourText = GetComponent<GUIText>();
+            availableRecrutes = availableRecrutes - 1;
+            recrute = GameObject.FindGameObjectWithTag("Recrute");
+            recrute.GetComponent<FriendlyAIMovement>().recruted = true;
+            recrute.GetComponent<FriendlyAIMovement>().medic = false;
             GameObject gameOverParent = GameObject.Find("canvas_HUD");
             GameObject gameOver = gameOverParent.transform.Find("RecruteHealthUI").gameObject;
             gameOver.SetActive(true);

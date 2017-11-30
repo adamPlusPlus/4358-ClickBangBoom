@@ -10,13 +10,42 @@ public class FriendlyAIMovement : MonoBehaviour {
     public bool recruted = false;
     float timer;
     public float timeBetweenHeals= 1f;
+    public bool enemySighted = false;
+    public bool medic = false;
+    GameObject enem;
+
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         playerHealth = player.GetComponent<PlayerHealth>();
+       
         //enemyHealth = GetComponent<EnemyHealth>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if ((other.tag == "Enemy")&&!medic&& recruted)
+        {
+            enemySighted = true;
+            enem = other.gameObject;
+            //navigate tovards enemy and attack
+            nav.SetDestination(other.gameObject.transform.position);
+        }
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        if ((other.tag == "Enemy")&& !medic&&recruted)
+        {
+            // go towards player
+            enemySighted = false;
+            nav.SetDestination(player.position);
+
+        }
     }
 
     void Start () {
@@ -26,7 +55,14 @@ public class FriendlyAIMovement : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        if (enemySighted)
+        {
+            if (enem.GetComponent<Health>().health <=0)
+            {
+                enemySighted = false;
+            }
+            
+        }
         if (playerHealth.currentHealth < 90)//when player in danger running faster to help
         {
             nav.speed = initialSpeed * 5;
@@ -35,11 +71,12 @@ public class FriendlyAIMovement : MonoBehaviour {
         {
             nav.speed = initialSpeed;
         }
-        if (recruted==true){
+        if ((recruted==true)&&!enemySighted)
+        {
             nav.SetDestination(player.position);
         }
          
-        if ((playerHealth.currentHealth <= 90)&& (recruted == true))
+        if ((playerHealth.currentHealth <= 90)&& (recruted == true)&&medic)
         {
             timer += Time.deltaTime;
 
