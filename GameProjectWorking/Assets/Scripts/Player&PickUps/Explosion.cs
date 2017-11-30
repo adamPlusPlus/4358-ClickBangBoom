@@ -24,7 +24,7 @@ public class Explosion: MonoBehaviour {
 
   public void Awake() {
     alpha = 1.0f;
-    transform.localScale = Vector3.one * blastRadius * 0.75f;
+    transform.localScale = Vector3.one * blastRadius;
     Destroy(gameObject, blastDuration);
   }
 
