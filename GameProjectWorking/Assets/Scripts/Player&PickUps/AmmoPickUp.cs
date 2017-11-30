@@ -24,7 +24,6 @@ public class AmmoPickUp : MonoBehaviour
         if (other.tag == "Player")
         {
            other.GetComponentInChildren<Gun>().ammo += increase;
-            Destroy(gameObject);
         }
     }
 }

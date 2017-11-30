@@ -6,8 +6,8 @@ public abstract class character : MonoBehaviour {
 
     public Animator ani { get; set; }
 
-    [SerializeField]
-    protected float speed;
+   // [SerializeField]
+    public float speed;
 
    // [SerializeField]
    // protected int health;

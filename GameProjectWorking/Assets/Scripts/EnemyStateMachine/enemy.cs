@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 //Specifically for the VatganEnemy guy
 
-public class enemy : character {
+public class enemy : character
+{
 
     private IEnemyState currentState;
 
@@ -13,11 +15,11 @@ public class enemy : character {
     public int power = 10;
     public bool melee;
     public bool passive;
-    public float idleTime=5;
+    public float idleTime = 5;
     public float patrolTime = 10;
 
 
-    private UnityEngine.AI.NavMeshAgent nav; //Reference to the nav mesh agent
+    public UnityEngine.AI.NavMeshAgent nav; //Reference to the nav mesh agent
     public GameObject shot;//enemy ranged attack prefab
 
     //patrol path using waypoints:
@@ -35,16 +37,17 @@ public class enemy : character {
 
 
 
-    public override void Start ()
+    public override void Start()
     {
         base.Start();
         ChangeState(new IdleState());
-      
+        nav.speed = speed;
+
     }
-	
-	void Update ()
+
+    void Update()
     {
-        if(GetComponent<Health>().health > 0)//need to fix this
+        if (GetComponent<Health>().health > 0)//need to fix this
         {
             currentState.Execute();
 
@@ -55,7 +58,7 @@ public class enemy : character {
 
     public void ChangeState(IEnemyState newState)
     {
-        if (currentState!=null)
+        if (currentState != null)
         {
             currentState.Exit();
         }
@@ -67,7 +70,7 @@ public class enemy : character {
 
     public void LookAtTarget()
     {
-        if (target!=null&& Vector3.Distance(transform.position, target.transform.position) > 0.3&& GetComponent<Health>().health>=4)
+        if (target != null && Vector3.Distance(transform.position, target.transform.position) > 0.3 && GetComponent<Health>().health >= 4)
         {
             transform.LookAt(target.transform);
         }
@@ -89,23 +92,23 @@ public class enemy : character {
                 Vector3 moveDirection = Vector3.forward;
                 //moveDirection.y = 0;
                 //transform.Translate(moveDirection * speed * Time.deltaTime);
-                nav.SetDestination(moveDirection);
+                nav.SetDestination(target.transform.position);
             }
         }
         float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
 
-        if (target==null)
+        if (target == null)
         {
             if (dist > minDist)
             {
                 Vector3 targetLocation = waypoints[num].transform.position;
                 //targetLocation.y = 0;
-                gameObject.transform.LookAt(targetLocation);
+               // gameObject.transform.LookAt(targetLocation);
 
                 Vector3 moveDirection = Vector3.forward;
                 //moveDirection.y = 0;
                 //transform.Translate(moveDirection * speed * Time.deltaTime);
-                nav.SetDestination(moveDirection);
+                nav.destination=(targetLocation);
                 // gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
             }
             else
@@ -136,26 +139,26 @@ public class enemy : character {
         }
     }
 
-   /* public void Move()// just testing
-    {
-        //ani.SetBool("isMoving", true);
+    /* public void Move()// just testing
+     {
+         //ani.SetBool("isMoving", true);
 
-        if (move==0&&GetComponent<Health>().health>=0)
-        {
-            if (hitEdge)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y-90, 0), 5 * Time.deltaTime);
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y+90, 0), 5 * Time.deltaTime);
-                transform.Translate(Vector3.forward * speed * Time.deltaTime);
-            }
-            
-        }
+         if (move==0&&GetComponent<Health>().health>=0)
+         {
+             if (hitEdge)
+             {
+                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y-90, 0), 5 * Time.deltaTime);
+                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
+             }
+             else
+             {
+                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, transform.rotation.y+90, 0), 5 * Time.deltaTime);
+                 transform.Translate(Vector3.forward * speed * Time.deltaTime);
+             }
 
-    }*/
+         }
+
+     }*/
 
     public void ThrowAttack()
     {
