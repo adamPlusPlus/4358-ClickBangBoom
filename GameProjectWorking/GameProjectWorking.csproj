@@ -87,6 +87,7 @@
     <Compile Include="Assets\flagCapture.cs" />
     <Compile Include="Assets\handleCursor.cs" />
     <Compile Include="Assets\mouseTrigger.cs" />
+    <Compile Include="Assets\Patrol.cs" />
     <Compile Include="Assets\Pixelation\Example\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\Pixelation\Example\Scripts\Plane.cs" />
     <Compile Include="Assets\Pixelation\Example\Scripts\PointLight.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Assets\Scripts\Dialogue\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Dialogue\TutorialManager.cs" />
     <Compile Include="Assets\Scripts\DistanceShooterEnemy.cs" />
+    <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\DoorTrigger.cs" />
     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -205,11 +207,13 @@
     <Compile Include="Assets\Scripts\Player&amp;PickUps\Bullet.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\Gun.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\healthPickUp.cs" />
+    <Compile Include="Assets\Scripts\Player&amp;PickUps\KeyPickup.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\melee.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PiercingBullet.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PiercingGun.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerHealth.cs" />
+    <Compile Include="Assets\Scripts\Player&amp;PickUps\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Player&amp;PickUps\WeaponControl.cs" />
     <Compile Include="Assets\Scripts\SceneTransition\moveScene.cs" />
     <Compile Include="Assets\Scripts\SceneTransition\teleport.cs" />
