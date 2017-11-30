@@ -13,6 +13,7 @@ public class IdleState : IEnemyState
     {
         this.enemy = enemy;
         enemy.ani.SetBool("IsMoving", false);
+        enemy.nav.isStopped = true;
     }
 
     public void Execute()
@@ -20,7 +21,7 @@ public class IdleState : IEnemyState
         //Debug.Log("In Idle State");
         Idle();
 
-        if(enemy.target!=null)
+        if (enemy.target != null)
         {
             enemy.ChangeState(new PatrolState());
         }
@@ -33,15 +34,15 @@ public class IdleState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Bullet" || other.gameObject.tag == "Dagger")
+        if (other.gameObject.tag == "Bullet" || other.gameObject.tag == "Dagger")
         {
-            enemy.target = enemy.player; 
+            enemy.target = enemy.player;
         }
     }
 
     public void OnTriggerStay(Collider other)
     {
-       
+
     }
 
     private void Idle()
@@ -50,7 +51,7 @@ public class IdleState : IEnemyState
 
         idleTimer += Time.deltaTime;
 
-        if(idleTimer>=enemy.idleTime&&enemy.num!=-1)
+        if (idleTimer >= enemy.idleTime && enemy.num != -1)
         {
             enemy.ChangeState(new PatrolState());
         }

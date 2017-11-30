@@ -11,6 +11,7 @@ public class PatrolState : IEnemyState
     public void Enter(enemy enemy)
     {
         this.enemy = enemy;
+        enemy.nav.isStopped = false;
     }
 
     public void Execute()
@@ -20,14 +21,14 @@ public class PatrolState : IEnemyState
 
         enemy.Move();
 
-        if(enemy.target!=null)
+        if (enemy.target != null)
         {
-            if(enemy.GetComponent<Health>().health<4)
+            if (enemy.GetComponent<Health>().health < 4)
             {
                 enemy.ChangeState(new RetreatState());
             }
             else
-            enemy.ChangeState(new RangedState());
+                enemy.ChangeState(new RangedState());
         }
     }
 
@@ -38,7 +39,7 @@ public class PatrolState : IEnemyState
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag=="Bullet"|| other.gameObject.tag == "Dagger")
+        if (other.gameObject.tag == "Bullet" || other.gameObject.tag == "Dagger")
         {
             enemy.target = enemy.player;
         }

@@ -22,6 +22,7 @@ public class Patrol : MonoBehaviour {
         // between points (ie, the agent doesn't slow down as it
         // approaches a destination point).
         agent.autoBraking = false;
+        anim = GetComponentInChildren<Animator>();
 
         GotoNextPoint();
     }
@@ -29,6 +30,7 @@ public class Patrol : MonoBehaviour {
 
     void GotoNextPoint()
     {
+        anim.SetBool("IsMoving", true);
         // Returns if no points have been set up
         if (points.Length == 0)
             return;
@@ -46,12 +48,12 @@ public class Patrol : MonoBehaviour {
     {
         if ((attack.playerInRange) || (attack.recruteInRange))
         {
-            //anim.SetTrigger("attack");
+            anim.SetTrigger("attack");
         }
         //run away from player to the next way point
         if ((myHealth.health <= 5)&&(myHealth.underAttack==true))
         {
-            //anim.SetBool("IsRunning", true);
+            anim.SetBool("IsRunning", true);
             agent.SetDestination(points[destPoint].position);
         }
         //go towards player if under attack
@@ -71,7 +73,7 @@ public class Patrol : MonoBehaviour {
             // close to the current one.
             if (!agent.pathPending && agent.remainingDistance < 1f)
                 GotoNextPoint();
-            //anim.SetBool("IsRunning", false);
+            anim.SetBool("IsRunning", false);
         }
 
     }

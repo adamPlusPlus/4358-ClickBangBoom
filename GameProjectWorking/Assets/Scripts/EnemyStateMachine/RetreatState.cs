@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RetreatState : IEnemyState {
+public class RetreatState : IEnemyState
+{
 
     private enemy enemy;
     private float retreatTimer;
@@ -11,6 +12,7 @@ public class RetreatState : IEnemyState {
     public void Enter(enemy enemy)
     {
         this.enemy = enemy;
+        enemy.nav.isStopped = true;
     }
 
     public void Execute()
@@ -22,7 +24,7 @@ public class RetreatState : IEnemyState {
 
     public void Exit()
     {
-
+        enemy.nav.speed = enemy.speed;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -32,16 +34,19 @@ public class RetreatState : IEnemyState {
 
     public void OnTriggerStay(Collider other)
     {
-        
+
     }
 
     public void Retreat()
     {
-        if(enemy.target!=null)
+        if (enemy.target != null)
         {
             Vector3 dir = enemy.transform.position - enemy.player.GetComponent<Transform>().position;
             dir.y = 0;
             enemy.transform.rotation = Quaternion.LookRotation(dir);
+            //enemy.nav.speed = enemy.speed * 2;
+
+            // enemy.nav.Move(dir);
         }
         enemy.transform.Translate(Vector3.forward * 12.0f * Time.deltaTime);
 
@@ -57,5 +62,5 @@ public class RetreatState : IEnemyState {
        enemy.GetComponent<CharacterController>().Move(moveDirection.normalized * 5 * Time.deltaTime);*/
 
     }
-    
+
 }
