@@ -25,8 +25,10 @@ public class AmmoPickUp : MonoBehaviour
         {
             if(other.transform.GetChild(0).gameObject.activeInHierarchy)
                 other.GetComponentInChildren<Gun>().ammo += increase;
-            else
-               other.GetComponentInChildren<PiercingGun>().ammo += increase;
+            else if (other.transform.GetChild(1).gameObject.activeInHierarchy)
+                other.GetComponentInChildren<PiercingGun>().ammo += increase;
+            else if (other.transform.GetChild(2).gameObject.activeInHierarchy)
+                other.GetComponentInChildren<BombGun>().ammo += increase;
             Destroy(gameObject);
         }
     }
