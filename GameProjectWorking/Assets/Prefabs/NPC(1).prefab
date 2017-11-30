@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 65031578878237370}
   - component: {fileID: 114617117513287292}
   - component: {fileID: 54245694442267458}
+  - component: {fileID: 195729090927414598}
   m_Layer: 0
   m_Name: NPC(1)
   m_TagString: Untagged
@@ -224,6 +225,27 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 3.25
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!195 &195729090927414598
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1212222367652012}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!212 &212961248291479322
 SpriteRenderer:
   m_ObjectHideFlags: 1
