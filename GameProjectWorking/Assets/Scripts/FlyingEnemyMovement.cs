@@ -9,6 +9,8 @@ public class FlyingEnemyMovement : MonoBehaviour {
     int MinDist = 30;
     private Vector3 startPosition;
     private Animator anim;
+    Vector3 targetPostition;
+    Vector3 recrutePosition;
     // Use this for initialization
     void Start()
     {
@@ -17,24 +19,28 @@ public class FlyingEnemyMovement : MonoBehaviour {
         //finding player
         target = GameObject.FindGameObjectWithTag("Player").transform;
         recrute = GameObject.FindGameObjectWithTag("Recrute").transform;
+        targetPostition = new Vector3(target.position.x,
+                                         target.position.y - 90,
+                                         target.position.z);
+        recrutePosition = new Vector3(recrute.position.x,
+                                      recrute.position.y - 90,
+                                      recrute.position.z);
         anim = GetComponent<Animator>();
+        float r = Random.Range(0.0f, 1.0f);
+        //Debug.Log(r);
+        if (r <= 0.2f)//in 20% times enemy will target recrute
+        {
+            target = recrute;
+            targetPostition = recrutePosition;
+        }
     }
 
     void Update()
     {
        
         if (this.GetComponent<Health>().health > 0) {
-            Vector3 targetPostition = new Vector3(target.position.x,
-                                           target.position.y - 90,
-                                           target.position.z);
-            Vector3 recrutePosition = new Vector3(recrute.position.x,
-                                           recrute.position.y - 90,
-                                           recrute.position.z);
-            if (Random.Range(0.0f, 1.0f) <= 0.1f)//in 20% times enemy will target recrute
-            {
-                target = recrute;
-                targetPostition = recrutePosition;
-            }
+           
+       
             if ((Vector3.Distance(transform.position, target.position) < MinDist))
             {
                 transform.LookAt(targetPostition);
